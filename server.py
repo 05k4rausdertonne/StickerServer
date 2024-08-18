@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 from PIL import Image
 from print_image import Printer
 from label_maker import LabelMaker
@@ -20,9 +20,14 @@ def label():
         # TODO: pass different args on
         printer.print_image(label_maker.make_label(text))
         
-        return f"Text received and printed: {text}", 200
+        return render_template('index.html'), 200
     else:
         return "No text provided", 400
+    
+@app.route('/', methods=['GET'])
+def home():
+    
+    return f"Text received and printed: {text}", 200
     
 @app.route("/image",methods=["POST"])
 def image():
