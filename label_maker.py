@@ -51,7 +51,7 @@ class LabelMaker:
         return image
     
 
-    def make_label(self, label, font_path='liberation-sans.regular.ttf', font_size=20, margin=0, padding=5, borderwidth=5):   
+    def make_label(self, label, font_path='liberation-sans.regular.ttf', font_size=35, margin=0, padding=5, borderwidth=5):   
         image_width = 384
 
         # Create the text image
