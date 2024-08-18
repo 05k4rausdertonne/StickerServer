@@ -16,7 +16,7 @@ def label():
     text = request.args.get('ltext')
     bold = request.args.get('lbold')
     italic = request.args.get('litalic')
-    font_size = request.args.get('lfontsize')
+    font_size = int(request.args.get('lfontsize'))
     
     if text and text != "":
         # Print the text to the console
