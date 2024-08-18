@@ -16,19 +16,20 @@ def label():
     text = request.args.get('ltext')
     bold = request.args.get('lbold')
     italic = request.args.get('litalic')
+    font_size = request.args.get('lfontsize')
     
     if text and text != "":
         # Print the text to the console
         print(f"Received text: {text}")
 
         if bold and not italic:
-            printer.print_image(label_maker.make_label(text, font_path='liberation-sans.bold.ttf'))
+            printer.print_image(label_maker.make_label(text, font_path='liberation-sans.bold.ttf', font_size=font_size))
         if not bold and italic:
-            printer.print_image(label_maker.make_label(text, font_path='liberation-sans.italic.ttf'))
+            printer.print_image(label_maker.make_label(text, font_path='liberation-sans.italic.ttf', font_size=font_size))
         if bold and italic:
-            printer.print_image(label_maker.make_label(text, font_path='liberation-sans.bold-italic.ttf'))
+            printer.print_image(label_maker.make_label(text, font_path='liberation-sans.bold-italic.ttf', font_size=font_size))
         else:
-            printer.print_image(label_maker.make_label(text))
+            printer.print_image(label_maker.make_label(text, font_size=font_size))
             
     return render_template('index.html'), 200
     
