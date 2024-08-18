@@ -12,17 +12,15 @@ app = Flask(__name__)
 @app.route('/label', methods=['GET'])
 def label():
     # Get the 'text' argument from the URL
-    text = request.args.get('text')
+    text = request.args.get('ltext')
     
-    if text:
+    if text and text != "":
         # Print the text to the console
         print(f"Received text: {text}")
         # TODO: pass different args on
         printer.print_image(label_maker.make_label(text))
-        
-        return render_template('index.html'), 200
-    else:
-        return "No text provided", 400
+            
+    return render_template('index.html'), 200
     
 @app.route('/', methods=['GET'])
 def home():
