@@ -4,7 +4,7 @@ class LabelMaker:
     def __init__(self):
         return
     
-    def create_text_image(text, font_path, font_size, max_width):
+    def create_text_image(self, text, font_path, font_size, max_width):
         # Load the font
         font = ImageFont.truetype(font_path, font_size)
         
@@ -51,11 +51,11 @@ class LabelMaker:
         return image
     
 
-    def make_label(label, font_path='liberation-sans.regular.ttf', font_size=20, margin=0, padding=5, borderwidth=5):   
+    def make_label(self, label, font_path='liberation-sans.regular.ttf', font_size=20, margin=0, padding=5, borderwidth=5):   
         image_width = 384
 
         # Create the text image
-        text_image = create_text_image(label, font_path, font_size, image_width - (margin + padding + borderwidth) * 2)
+        text_image = self.create_text_image(label, font_path, font_size, image_width - (margin + padding + borderwidth) * 2)
         scaled_margin = (margin + padding + borderwidth)
         image_height = text_image.size[1] + 2 * scaled_margin
         image = Image.new('1', (image_width, image_height), 1)  # Create final image in monochrome
