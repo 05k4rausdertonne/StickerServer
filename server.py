@@ -26,8 +26,7 @@ def label():
     
 @app.route('/', methods=['GET'])
 def home():
-    
-    return f"Text received and printed: {text}", 200
+    return render_template('index.html'), 200
     
 @app.route("/image",methods=["POST"])
 def image():
