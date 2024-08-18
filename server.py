@@ -5,6 +5,7 @@ from label_maker import LabelMaker
 
 # TODO: build frontend
 
+
 printer = Printer(0x28e9, 0x0289)
 label_maker = LabelMaker()
 app = Flask(__name__)
@@ -13,12 +14,21 @@ app = Flask(__name__)
 def label():
     # Get the 'text' argument from the URL
     text = request.args.get('ltext')
+    bold = request.args.get('lbold')
+    italic = request.args.get('litalic')
     
     if text and text != "":
         # Print the text to the console
         print(f"Received text: {text}")
-        # TODO: pass different args on
-        printer.print_image(label_maker.make_label(text))
+
+        if bold and not italic:
+            printer.print_image(label_maker.make_label(text, font_path='liberation-sans.bold.ttf'))
+        if not bold and italic:
+            printer.print_image(label_maker.make_label(text, font_path='liberation-sans.italic.ttf'))
+        if bold and italic:
+            printer.print_image(label_maker.make_label(text, font_path='liberation-sans.bold-italic.ttf'))
+        else:
+            printer.print_image(label_maker.make_label(text))
             
     return render_template('index.html'), 200
     
