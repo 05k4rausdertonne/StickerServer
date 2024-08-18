@@ -1,7 +1,7 @@
 from PIL import Image, ImageDraw, ImageFont
 
 class LabelMaker:
-    def __init__():
+    def __init__(self):
         return
     
     def create_text_image(text, font_path, font_size, max_width):
