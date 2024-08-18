@@ -11,7 +11,6 @@ img = Image.open("test.jpg").convert("L")
 
 p = Usb(vendor_id, product_id, 0, timeout=5000)
 
-
 p.text("Hello World\n")
 p.ln(2)
 p.image(img, impl="bitImageColumn")
