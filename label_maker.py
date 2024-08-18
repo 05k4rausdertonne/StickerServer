@@ -1,5 +1,7 @@
 from PIL import Image, ImageDraw, ImageFont
 
+# Attribution to Phlip Müller (github: muelphil) for this code
+
 class LabelMaker:
     def __init__(self):
         return
