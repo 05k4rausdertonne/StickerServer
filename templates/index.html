@@ -14,6 +14,14 @@
     <h1>Welcome to My Website</h1>
     <p>This is the home page of my Flask app!</p>
 
+    <form id="lform">
+        <label for="ltext">Label Text  </label>
+        <input type="text" id="ltext" name="ltext"><br><br>
+        <label for="lbold">Bold </label>
+        <input type="checkbox" id="lbold" name="lbold"><br><br>
+        <button id="lsubmit">Print</button>
+      </form> 
+
     <!-- Link to the JavaScript file -->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
