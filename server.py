@@ -3,6 +3,8 @@ from PIL import Image
 from print_image import Printer
 from label_maker import LabelMaker
 
+# TODO: build frontend
+
 printer = Printer(0x28e9, 0x0289)
 label_maker = LabelMaker()
 app = Flask(__name__)
@@ -15,6 +17,7 @@ def label():
     if text:
         # Print the text to the console
         print(f"Received text: {text}")
+        # TODO: pass different args on
         printer.print_image(label_maker.make_label(text))
         
         return f"Text received and printed: {text}", 200
