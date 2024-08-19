@@ -34,12 +34,12 @@ body {
 
 /* Root Variables for Easy Customization */
 :root {
-    --slider-thumb-size: 1em; /* Size of the slider thumb */
-    --slider-track-height: 3em; /* Height of the slider track */
-    --slider-thumb-border-width: 5px; /* Width of the thumb border */
+    --slider-thumb-size: 2em; /* Size of the slider thumb */
+    --slider-track-height: 0em; /* Height of the slider track */
+    --slider-thumb-border-width: 2px; /* Width of the thumb border */
     
     /* Grayscale Colors */
-    --color-fill:    #888888; /* Thumb fill color */
+    --color-fill:    #000000; /* Thumb fill color */
     --color-default: rgba(0, 0, 0, 0.2); /* Default border color */
     --color-hover:   rgba(0, 0, 0, 0.3); /* Hover border color */
     --color-active:  rgba(0, 0, 0, 0.5); /* Active border color */
