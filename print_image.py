@@ -28,7 +28,7 @@ class Printer:
         
 
     def print_spacer(self, px=10, print_width=384):
-        spacer = Image.new((print_width,px), 'white')
+        spacer = Image.new('1', (print_width, px), 'white')
         self.printer.ln()
         self.printer.image(spacer, impl="bitImageColumn")
 
