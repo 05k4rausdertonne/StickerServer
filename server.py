@@ -33,9 +33,7 @@ def label():
         print(f"Received text: {text}")
         
         if do_emoji:
-            for emoji in emoji_sticker_maker.make_emoji_sticker(text):
-                print(emoji)
-                printer.print_image(emoji)
+            printer.print_image(emoji_sticker_maker.make_emoji_sticker(text))
         elif contains_emoji(text):
             printer.print_image(label_maker.make_label(text, font_path='NotoEmoji.ttf', font_size=font_size))
         elif bold and not italic:
