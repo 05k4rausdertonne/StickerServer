@@ -26,3 +26,6 @@ class Printer:
         self.printer.image(img, impl="bitImageColumn")
         self.printer.ln(feed_lines)
         self.printer.close()
+
+    def feed_lines(self, feed_lines):
+        self.printer.ln(feed_lines)
