@@ -36,7 +36,7 @@ def label():
             printer.print_image(label_maker.make_label(text, font_path='liberation-sans.italic.ttf', font_size=font_size))
         if bold and italic:
             printer.print_image(label_maker.make_label(text, font_path='liberation-sans.bold-italic.ttf', font_size=font_size))
-        else:
+        if not bold and not italic and not do_emoji:
             printer.print_image(label_maker.make_label(text, font_size=font_size))
             
     return render_template('index.html'), 200

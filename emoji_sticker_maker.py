@@ -18,7 +18,7 @@ class EmojiStickerMaker:
 
         text_width, text_height = draw.textsize(label[:1], font=font)
 
-        while not (image_size <= text_width or image_size <= text_height):
+        while not (image_size <= text_height):
             emoji_size += 1
             font = ImageFont.truetype(font_path, emoji_size)
             text_width, text_height = draw.textsize(label[:1], font=font)
