@@ -8,7 +8,8 @@ from emoji_sticker_maker import EmojiStickerMaker
 
 # TODO: build frontend
 
-spacer_size = 25
+# Adjust this values to compensate for your printer
+spacer_size = 35
 
 def contains_emoji(s):
     return any(char in EMOJI_DATA for char in s)
