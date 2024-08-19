@@ -8,7 +8,7 @@ from emoji_sticker_maker import EmojiStickerMaker
 
 # TODO: build frontend
 
-feed_lines = 10
+spacer_size = 25
 
 def contains_emoji(s):
     return any(char in EMOJI_DATA for char in s)
@@ -39,39 +39,41 @@ def label():
             for emoji in emoji_sticker_maker.make_emoji_sticker(text):
                 print(emoji)
                 printer.print_image(emoji)
+            printer.print_spacer(px=spacer_size)
         elif contains_emoji(text):
             printer.print_image(
                 label_maker.make_label(
                     text, 
                     font_path='NotoEmoji.ttf', 
-                    font_size=font_size), 
-                feed_lines=feed_lines)
+                    font_size=font_size))
+            printer.print_spacer(px=spacer_size)
         elif bold and not italic:
             printer.print_image(
                 label_maker.make_label(
                     text, 
                     font_path='liberation-sans.bold.ttf', 
-                    font_size=font_size), 
-                feed_lines=feed_lines)
+                    font_size=font_size))
+            printer.print_spacer(px=spacer_size)
         elif not bold and italic:
             printer.print_image(
                 label_maker.make_label(
                     text, 
                     font_path='liberation-sans.italic.ttf', 
-                    font_size=font_size), 
-                feed_lines=feed_lines)
+                    font_size=font_size))
+            printer.print_spacer(px=spacer_size)
         elif bold and italic:
             printer.print_image(
                 label_maker.make_label(
                     text, 
                     font_path='liberation-sans.bold-italic.ttf', 
-                    font_size=font_size), 
-                feed_lines=feed_lines)
+                    font_size=font_size))
+            printer.print_spacer(px=spacer_size)
         else:
             printer.print_image(
                 label_maker.make_label(
                     text, 
                     font_size=font_size))
+            printer.print_spacer(px=spacer_size)
 
     return render_template('index.html'), 200
     

@@ -23,10 +23,14 @@ class Printer:
         img = img.resize(new_size, Image.LANCZOS)
         
         # print image
-        # self.printer.ln()
-        # self.printer.image(img, impl="bitImageColumn")
-        for i in range(feed_lines):
-            self.printer.text(f'{i}\n')
+        self.printer.ln()
+        self.printer.image(img, impl="bitImageColumn")
+        
+
+    def print_spacer(self, px=10, print_width=384):
+        spacer = Image.new((print_width,px), 'white')
+        self.printer.ln()
+        self.printer.image(spacer, impl="bitImageColumn")
 
     def feed_lines(self, feed_lines):
         print(f"feeding {feed_lines} lines")
