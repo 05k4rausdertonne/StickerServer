@@ -34,17 +34,22 @@ body {
 
 /* Root Variables for Easy Customization */
 :root {
-    --slider-thumb-size: 2em; /* Size of the slider thumb */
+    --slider-thumb-size: 1em; /* Size of the slider thumb */
     --slider-track-height: 0em; /* Height of the slider track */
-    --slider-thumb-border-width: 2px; /* Width of the thumb border */
-    
+    --slider-thumb-border-width: 4px; /* Width of the thumb border */
+    --slider-track-thickness: 4px; /* Thickness of the track */
+
+     /* Track Colors */
+    --track-color-before: #cccccc; /* Track color before the thumb (left side) */
+    --track-color-after:  #eeeeee; /* Track color after the thumb (right side) */
+  
     /* Grayscale Colors */
-    --color-fill:    #000000; /* Thumb fill color */
-    --color-default: rgb(15, 15, 15); /* Default border color */
-    --color-hover:   rgba(25, 25, 25, 1); /* Hover border color */
-    --color-active:  rgba(50, 50, 50, 1); /* Active border color */
+    --color-fill:    #ffffff; /* Thumb fill color */
+    --color-default: rgba(0, 0, 0, 0.1); /* Default border color */
+    --color-hover:   rgba(0, 0, 0, 0.2); /* Hover border color */
+    --color-active:  rgba(0, 0, 0, 0.3); /* Active border color */
     
-    --font-size:     24px;  /* Font size to control the size of the slider */
+    --font-size:     16px;  /* Font size to control the size of the slider */
   }
   
   input[type=range] {
@@ -124,16 +129,22 @@ body {
       width: 100%;
       cursor: pointer;
       height: var(--slider-track-height);
-      border-bottom: var(--slider-thumb-border-width) solid var(--color-default);
-      background-color: transparent;
+      background: linear-gradient(
+        to right,
+        var(--track-color-before) 0%,
+        var(--track-color-before) calc(var(--value) * 1%),
+        var(--track-color-after) calc(var(--value) * 1%),
+        var(--track-color-after) 100%
+      );
+      border-bottom: var(--slider-track-thickness) solid transparent; /* Border only for visual alignment */
     }
   
     &::-moz-range-track {
       width: 100%;
       cursor: pointer;
       height: var(--slider-track-height);
-      border-bottom: var(--slider-thumb-border-width) solid var(--color-default);
-      background-color: transparent;
+      background: var(--track-color-before);
+      border-bottom: var(--slider-track-thickness) solid var(--track-color-after);
     }
   
     &::-ms-track {
@@ -141,5 +152,12 @@ body {
       border-color: transparent;
       color: transparent;
     }
-  }
   
+    &::-ms-fill-lower {
+      background: var(--track-color-before);
+    }
+  
+    &::-ms-fill-upper {
+      background: var(--track-color-after);
+    }
+  }
