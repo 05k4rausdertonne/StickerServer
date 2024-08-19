@@ -35,7 +35,7 @@ body {
 /* Root Variables for Easy Customization */
 :root {
     --slider-thumb-size: 1em; /* Size of the slider thumb */
-    --slider-track-height: -0.1em; /* Height of the slider track */
+    --slider-track-height: 0em; /* Height of the slider track */
     --slider-thumb-border-width: 4px; /* Width of the thumb border */
     --slider-track-thickness: 4px; /* Thickness of the track */
 
