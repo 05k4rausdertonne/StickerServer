@@ -7,7 +7,7 @@ class EmojiStickerMaker:
 
     def make_emoji_sticker(self, label, font_path='NotoEmoji.ttf'):   
         image_size = 384
-        emoji_size = 340
+        emoji_size = 325
         emoji_images = []
 
         # Use the image size as the font size to make the emoji as large as possible
@@ -20,7 +20,7 @@ class EmojiStickerMaker:
 
             text_width, text_height = draw.textsize(char, font=font)
 
-            while not (image_size <= text_height):
+            while not (image_size <= text_width or image_size <= text_height):
                 emoji_size += 1
                 font = ImageFont.truetype(font_path, emoji_size)
                 text_width, text_height = draw.textsize(char, font=font)
