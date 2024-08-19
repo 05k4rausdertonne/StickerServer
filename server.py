@@ -8,7 +8,7 @@ from emoji_sticker_maker import EmojiStickerMaker
 
 # TODO: build frontend
 
-feed_lines = 4
+feed_lines = 10
 
 def contains_emoji(s):
     return any(char in EMOJI_DATA for char in s)
