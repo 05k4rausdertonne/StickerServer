@@ -2,12 +2,14 @@ from flask import Flask, request, render_template
 from PIL import Image
 from print_image import Printer
 from label_maker import LabelMaker
+from emoji_sticker_maker import EmojiStickerMaker
 
 # TODO: build frontend
 
 
 printer = Printer(0x28e9, 0x0289)
 label_maker = LabelMaker()
+emoji_sticker_maker = EmojiStickerMaker()
 app = Flask(__name__)
 
 @app.route('/label', methods=['GET'])
@@ -17,6 +19,7 @@ def label():
     bold = request.args.get('lbold')
     italic = request.args.get('litalic')
     font_size = request.args.get('lfontsize')
+    do_emoji = request.args.get('lemoji')
 
     if font_size:
         font_size = int(font_size)
@@ -24,7 +27,9 @@ def label():
     if text and text != "":
         # Print the text to the console
         print(f"Received text: {text}")
-
+        
+        if do_emoji:
+            printer.print_image(emoji_sticker_maker.make_emoji_sticker(text))
         if bold and not italic:
             printer.print_image(label_maker.make_label(text, font_path='liberation-sans.bold.ttf', font_size=font_size))
         if not bold and italic:
