@@ -40,9 +40,9 @@ body {
     
     /* Grayscale Colors */
     --color-fill:    #000000; /* Thumb fill color */
-    --color-default: rgba(0, 0, 0, 0.2); /* Default border color */
-    --color-hover:   rgba(0, 0, 0, 0.3); /* Hover border color */
-    --color-active:  rgba(0, 0, 0, 0.5); /* Active border color */
+    --color-default: rgb(15, 15, 15); /* Default border color */
+    --color-hover:   rgba(25, 25, 25, 1); /* Hover border color */
+    --color-active:  rgba(50, 50, 50, 1); /* Active border color */
     
     --font-size:     16px;  /* Font size to control the size of the slider */
   }
