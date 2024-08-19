@@ -31,3 +31,101 @@ body {
         flex-basis: 100%; /* Make each box take full width when screen is less than 768px wide */
     }
 }
+
+
+input[type=range] {
+    box-sizing: border-box;
+    font-size: var(--font-size);
+    line-height: 1;
+    height: 2em;
+    background-color: transparent;
+    cursor: pointer;
+  
+    /* Resetting default styles */
+    -webkit-appearance: none;
+    width: 100%;
+  
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+    }
+  
+    &:focus {
+      outline: none;
+    }
+  
+    &::-ms-track {
+      width: 100%;
+      cursor: pointer;
+      background: transparent; 
+      border-color: transparent;
+      color: transparent;
+    }
+  
+    /* Custom Thumb (Handle) Styling */
+    &::-webkit-slider-thumb {
+      width: 2em;
+      height: 2em;
+      margin-top: 0;
+      background-color: var(--color-fill);
+      border-radius: 1em;
+      border: 2px solid var(--color-default);
+      cursor: pointer;
+      transition: border-color 0.3s ease;
+    }
+  
+    &::-moz-range-thumb {
+      width: 2em;
+      height: 2em;
+      background-color: var(--color-fill);
+      border-radius: 1em;
+      border: 2px solid var(--color-default);
+      cursor: pointer;
+      transition: border-color 0.3s ease;
+    }
+  
+    &::-ms-thumb {
+      width: 2em;
+      height: 2em;
+      background-color: var(--color-fill);
+      border-radius: 1em;
+      border: 2px solid var(--color-default);
+      cursor: pointer;
+      transition: border-color 0.3s ease;
+    }
+  
+    &:hover {
+      &::-webkit-slider-thumb { border-color: var(--color-hover); }
+      &::-moz-range-thumb     { border-color: var(--color-hover); }
+      &::-ms-thumb            { border-color: var(--color-hover); }
+    }
+  
+    &:active {
+      &::-webkit-slider-thumb { border-color: var(--color-active); }
+      &::-moz-range-thumb     { border-color: var(--color-active); }
+      &::-ms-thumb            { border-color: var(--color-active); }
+    }
+  
+    /* Track Styling */
+    &::-webkit-slider-runnable-track {
+      width: 100%;
+      cursor: pointer;
+      height: 1em;
+      border-bottom: 2px solid var(--color-default);
+      background-color: transparent;
+    }
+  
+    &::-moz-range-track {
+      width: 100%;
+      cursor: pointer;
+      height: 1em;
+      border-bottom: 2px solid var(--color-default);
+      background-color: transparent;
+    }
+  
+    &::-ms-track {
+      background: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
+  }
+  
