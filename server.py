@@ -86,7 +86,8 @@ def home():
 def image():
     image=request.files['file']
     pil_image = Image.open(image)
-    printer.print_image(pil_image)
+    printer.print_image(pil_image, auto_rotate=True)
+    printer.print_spacer(px=spacer_size)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

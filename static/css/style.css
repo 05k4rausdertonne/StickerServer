@@ -1,0 +1,40 @@
+/* styles.css */
+
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Allows the items to wrap to the next line if the container is too small */
+}
+
+.box {
+    flex: 1; /* Each box will take up equal width */
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.box1 {
+    background-color: #f44336;
+}
+
+.box2 {
+    background-color: #2196F3;
+}
+
+.box3 {
+    background-color: #4CAF50;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+    .box {
+        flex-basis: 100%; /* Make each box take full width when screen is less than 768px wide */
+    }
+}
