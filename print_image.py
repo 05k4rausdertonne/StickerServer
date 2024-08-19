@@ -25,7 +25,8 @@ class Printer:
         # print image
         self.printer.ln()
         self.printer.image(img, impl="bitImageColumn")
-        self.printer.ln(count=feed_lines)
+        for _ in range(feed_lines):
+            self.printer.ln()
         self.printer.close()
 
     def feed_lines(self, feed_lines):
