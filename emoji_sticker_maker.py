@@ -23,6 +23,8 @@ class EmojiStickerMaker:
             font = ImageFont.truetype(font_path, emoji_size)
             text_width, text_height = draw.textsize(label[:1], font=font)
 
+        print(f"printing emoji at font size {emoji_size}")
+
         # Calculate the position to center the emoji in the image
         text_x = (image_size - text_width) // 2
         text_y = (image_size - text_height) // 2
