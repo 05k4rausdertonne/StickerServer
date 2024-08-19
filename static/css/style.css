@@ -35,19 +35,19 @@ body {
 /* Root Variables for Easy Customization */
 :root {
     --slider-thumb-size: 1em; /* Size of the slider thumb */
-    --slider-track-height: 0em; /* Height of the slider track */
+    --slider-track-height: -0.1em; /* Height of the slider track */
     --slider-thumb-border-width: 4px; /* Width of the thumb border */
     --slider-track-thickness: 4px; /* Thickness of the track */
 
      /* Track Colors */
-    --track-color-before: #cccccc; /* Track color before the thumb (left side) */
-    --track-color-after:  #eeeeee; /* Track color after the thumb (right side) */
+    --track-color-before: #bbbbbb; /* Track color before the thumb (left side) */
+    --track-color-after:  #ffffff; /* Track color after the thumb (right side) */
   
     /* Grayscale Colors */
     --color-fill:    #ffffff; /* Thumb fill color */
-    --color-default: rgba(0, 0, 0, 0.1); /* Default border color */
-    --color-hover:   rgba(0, 0, 0, 0.2); /* Hover border color */
-    --color-active:  rgba(0, 0, 0, 0.3); /* Active border color */
+    --color-default: #bbbbbb; /* Default border color */
+    --color-hover:   #888888; /* Hover border color */
+    --color-active:  #444444; /* Active border color */
     
     --font-size:     16px;  /* Font size to control the size of the slider */
   }
