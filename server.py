@@ -27,15 +27,14 @@ def label():
 
     if font_size:
         font_size = int(font_size)
-    
-    font_path = 'liberation-sans.bold.ttf'
-    
+        
     if text and text != "":
         # Print the text to the console
         print(f"Received text: {text}")
         
         if do_emoji:
             for emoji in emoji_sticker_maker.make_emoji_sticker(text):
+                print(emoji)
                 printer.print_image(emoji)
         elif contains_emoji(text):
             printer.print_image(label_maker.make_label(text, font_path='NotoEmoji.ttf', font_size=font_size))
