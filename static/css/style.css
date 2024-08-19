@@ -54,7 +54,7 @@ body {
     appearance: none;
     width: 20px; /* Thumb width */
     height: 20px; /* Thumb height */
-    background: #2196F3; /* Thumb color */
+    background: #f32121; /* Thumb color */
     border-radius: 50%; /* Rounded thumb */
     cursor: pointer; /* Change cursor to pointer */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a shadow for some depth */
@@ -64,7 +64,7 @@ body {
 .slider::-moz-range-thumb {
     width: 20px; /* Thumb width */
     height: 20px; /* Thumb height */
-    background: #2196F3; /* Thumb color */
+    background: #f32121; /* Thumb color */
     border-radius: 50%; /* Rounded thumb */
     cursor: pointer; /* Change cursor to pointer */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a shadow for some depth */
