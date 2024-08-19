@@ -24,7 +24,7 @@ class Printer:
         
         # print image
         self.printer.ln()
-        self.printer.image(img, impl="bitImageColumn")
+        # self.printer.image(img, impl="bitImageColumn")
         for _ in range(feed_lines):
             self.printer.text(txt='\n')
         self.printer.close()
