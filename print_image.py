@@ -7,7 +7,7 @@ class Printer:
     def __init__(self, vendor_id, product_id):
         self.printer = Usb(vendor_id, product_id, 0, timeout=5000)
     
-    def print_image(self, img, auto_rotate=False, print_width=384, feed_lines=4):
+    def print_image(self, img, auto_rotate=False, print_width=384, feed_lines=1):
         img = img.convert("L").filter(ImageFilter.EDGE_ENHANCE)
         width, height = img.size
         if auto_rotate and width > height:
