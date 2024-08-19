@@ -27,10 +27,6 @@ class EmojiStickerMaker:
 
             print(f"printing emoji at font size {emoji_size}")
 
-            # Calculate the position to center the emoji in the image
-            text_x = (image_size - text_width) // 2
-            text_y = (image_size - text_height) // 2
-
             # Draw the emoji centered in the image
             draw.text((0, 0), label[:1], fill='black', font=font)
             image = image.rotate(90, expand=True)
