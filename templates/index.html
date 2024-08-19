@@ -29,14 +29,30 @@
     </form> -->
 
     <div class="container">
-        <div class="box box1">Area 1</div>
-        <div class="box box2">Area 2</div>
-        <div class="box box3">Area 3</div>
+        <div class="box box1">
+            <form>
+                <h1>Make a Label</h1>
+                <label for="lbold"><b>B</b></label>
+                <input type="checkbox" id="lbold" name="lbold">
+                <label for="litalic"><i>I</i></label>
+                <input type="checkbox" id="litalic" name="litalic"><br><br>
+                <label for="ltext">Label Text</label>
+                <input type="text" id="ltext" name="ltext"><br><br>
+                <label for="lfontsize">Font Size</label>
+                <input type="range" id="lfontsize" name="lfontsize" min="16" max="128" value="35"><br><br>
+            </form>
+            <button type="button" value="Print">Print Label</button>
+        </div>
+        <div class="box box2">
+            <h1>Make an Sticker</h1>
+        </div>
+        <div class="box box3">
+            <h1>Print an Image</h1>
+        </div>
     </div>
 
     
 
-    <button type="button" value="Print"></button>
 
     <!-- Link to the JavaScript file -->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
