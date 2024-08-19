@@ -32,6 +32,14 @@ body {
     }
 }
 
+/* Grayscale Colors */
+:root {
+    --color-fill:    #888888; /* medium gray */
+    --color-default: rgba(0, 0, 0, 0.2); /* light black */
+    --color-hover:   rgba(0, 0, 0, 0.3); /* darker black on hover */
+    --color-active:  rgba(0, 0, 0, 0.5); /* even darker black on active */
+    --font-size:     16px;  /* Font size to control the size of the slider */
+}
 
 input[type=range] {
     box-sizing: border-box;
