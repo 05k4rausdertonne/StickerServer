@@ -23,10 +23,10 @@ class Printer:
         img = img.resize(new_size, Image.LANCZOS)
         
         # print image
-        self.printer.ln()
+        # self.printer.ln()
         # self.printer.image(img, impl="bitImageColumn")
-        for _ in range(feed_lines):
-            self.printer.text(txt='\n')
+        for i in range(feed_lines):
+            self.printer.text(txt=f'{i}\n')
         self.printer.close()
 
     def feed_lines(self, feed_lines):
