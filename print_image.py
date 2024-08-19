@@ -8,6 +8,7 @@ class Printer:
         self.printer = Usb(vendor_id, product_id, 0, timeout=5000)
     
     def print_image(self, img, auto_rotate=False, print_width=384, feed_lines=1):
+        self.printer.open()
         img = img.convert("L").filter(ImageFilter.EDGE_ENHANCE)
         width, height = img.size
         if auto_rotate and width > height:
@@ -22,11 +23,13 @@ class Printer:
         img = img.resize(new_size, Image.LANCZOS)
         
         # print image
-        self.printer.ln(feed_lines)
+        self.printer.ln()
         self.printer.image(img, impl="bitImageColumn")
-        self.printer.ln(feed_lines)
+        self.printer.ln()
         self.printer.close()
 
     def feed_lines(self, feed_lines):
+        self.printer.open()
         print(f"feeding {feed_lines} lines")
-        self.printer.ln(feed_lines)
+        self.printer.ln(count=feed_lines)
+        self.printer.close()
