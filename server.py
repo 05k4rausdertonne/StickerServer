@@ -1,11 +1,15 @@
 from flask import Flask, request, render_template
 from PIL import Image
+from emoji import EMOJI_DATA
+
 from print_image import Printer
 from label_maker import LabelMaker
 from emoji_sticker_maker import EmojiStickerMaker
 
 # TODO: build frontend
 
+def contains_emoji(s):
+    return any(char in EMOJI_DATA for char in s)
 
 printer = Printer(0x28e9, 0x0289)
 label_maker = LabelMaker()
@@ -24,19 +28,24 @@ def label():
     if font_size:
         font_size = int(font_size)
     
+    font_path = 'liberation-sans.bold.ttf'
+    
     if text and text != "":
         # Print the text to the console
         print(f"Received text: {text}")
         
         if do_emoji:
-            printer.print_image(emoji_sticker_maker.make_emoji_sticker(text))
-        if bold and not italic:
+            for emoji in emoji_sticker_maker.make_emoji_sticker(text):
+                printer.print_image(emoji)
+        elif contains_emoji(text):
+            printer.print_image(label_maker.make_label(text, font_path='NotoEmoji.ttf', font_size=font_size))
+        elif bold and not italic:
             printer.print_image(label_maker.make_label(text, font_path='liberation-sans.bold.ttf', font_size=font_size))
-        if not bold and italic:
+        elif not bold and italic:
             printer.print_image(label_maker.make_label(text, font_path='liberation-sans.italic.ttf', font_size=font_size))
-        if bold and italic:
+        elif bold and italic:
             printer.print_image(label_maker.make_label(text, font_path='liberation-sans.bold-italic.ttf', font_size=font_size))
-        if not bold and not italic and not do_emoji:
+        else:
             printer.print_image(label_maker.make_label(text, font_size=font_size))
             
     return render_template('index.html'), 200
