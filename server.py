@@ -37,9 +37,9 @@ def label():
         print(f"Received text: {text}")
         
         if do_emoji:
-            for emoji in emoji_sticker_maker.make_emoji_sticker(text):
-                print(emoji)
-                printer.print_image(emoji)
+            for char in text:
+                if contains_emoji(char):
+                    printer.print_image(emoji_sticker_maker.make_emoji_sticker(text))
             printer.print_spacer(px=spacer_size)
         elif contains_emoji(text):
             printer.print_image(
