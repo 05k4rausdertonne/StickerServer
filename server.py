@@ -8,6 +8,8 @@ from emoji_sticker_maker import EmojiStickerMaker
 
 # TODO: build frontend
 
+feed_lines = 4
+
 def contains_emoji(s):
     return any(char in EMOJI_DATA for char in s)
 
@@ -37,22 +39,22 @@ def label():
             for emoji in emoji_sticker_maker.make_emoji_sticker(text):
                 print(emoji)
                 printer.print_image(emoji)
-            printer.feed_lines(6)
+            printer.feed_lines(feed_lines)
         elif contains_emoji(text):
             printer.print_image(label_maker.make_label(text, font_path='NotoEmoji.ttf', font_size=font_size))
-            printer.feed_lines(6)
+            printer.feed_lines(feed_lines)
         elif bold and not italic:
             printer.print_image(label_maker.make_label(text, font_path='liberation-sans.bold.ttf', font_size=font_size))
-            printer.feed_lines(6)
+            printer.feed_lines(feed_lines)
         elif not bold and italic:
             printer.print_image(label_maker.make_label(text, font_path='liberation-sans.italic.ttf', font_size=font_size))
-            printer.feed_lines(6)
+            printer.feed_lines(feed_lines)
         elif bold and italic:
             printer.print_image(label_maker.make_label(text, font_path='liberation-sans.bold-italic.ttf', font_size=font_size))
-            printer.feed_lines(6)
+            printer.feed_lines(feed_lines)
         else:
             printer.print_image(label_maker.make_label(text, font_size=font_size))
-            printer.feed_lines(6)
+            printer.feed_lines(feed_lines)
 
     return render_template('index.html'), 200
     

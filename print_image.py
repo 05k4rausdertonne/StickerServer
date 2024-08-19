@@ -28,4 +28,5 @@ class Printer:
         self.printer.close()
 
     def feed_lines(self, feed_lines):
+        print(f"feeding {feed_lines} lines")
         self.printer.ln(feed_lines)
