@@ -15,7 +15,7 @@ class EmojiStickerMaker:
 
         for char in label:
             # Create a new image with a white background
-            image = Image.new('RGB', (image_size, image_size), 'white')
+            image = Image.new('1', (image_size, image_size), 'white')
             draw = ImageDraw.Draw(image)
 
             text_width, text_height = draw.textsize(char, font=font)
@@ -32,8 +32,8 @@ class EmojiStickerMaker:
             text_y = (image_size - text_height) // 2
 
             # Draw the emoji centered in the image
-            draw.text((text_x, text_y), label[:1], fill='black', font=font)
-            image = image.convert('L').rotate(90, expand=True)
+            draw.text((0, 0), label[:1], fill='black', font=font)
+            image = image.rotate(90, expand=True)
 
             emoji_images.append(image)
 
