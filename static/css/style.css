@@ -7,7 +7,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #000000;
+    background-color: #202020;
 }
 
 .container {
@@ -30,49 +30,4 @@ body {
     .box {
         flex-basis: 100%; /* Make each box take full width when screen is less than 768px wide */
     }
-}
-
-/* General Slider Styling */
-.slider {
-    -webkit-appearance: none; /* Remove default styling */
-    width: 100%; /* Full-width */
-    height: 8px; /* Height of the track */
-    background: #ddd; /* Track background color */
-    border-radius: 5px; /* Rounded corners for the track */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Slightly transparent */
-    transition: opacity 0.3s ease;
-}
-
-.slider:hover {
-    opacity: 1; /* Fully opaque when hovered */
-}
-
-/* Thumb (Handle) Styling */
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Remove default styling */
-    appearance: none;
-    width: 20px; /* Thumb width */
-    height: 20px; /* Thumb height */
-    background: #f32121; /* Thumb color */
-    border-radius: 50%; /* Rounded thumb */
-    cursor: pointer; /* Change cursor to pointer */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a shadow for some depth */
-    transition: background 0.3s ease;
-}
-
-.slider::-moz-range-thumb {
-    width: 20px; /* Thumb width */
-    height: 20px; /* Thumb height */
-    background: #f32121; /* Thumb color */
-    border-radius: 50%; /* Rounded thumb */
-    cursor: pointer; /* Change cursor to pointer */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a shadow for some depth */
-    transition: background 0.3s ease;
-}
-
-/* Change thumb color on hover */
-.slider::-webkit-slider-thumb:hover,
-.slider::-moz-range-thumb:hover {
-    background: #1976D2; /* Darker blue on hover */
 }
