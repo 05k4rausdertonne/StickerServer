@@ -6,9 +6,9 @@ from PIL import Image, ImageFilter
 class Printer:
     def __init__(self, vendor_id, product_id):
         self.printer = Usb(vendor_id, product_id, 0, timeout=5000)
+        self.printer.open()
     
     def print_image(self, img, auto_rotate=False, print_width=384, feed_lines=1):
-        self.printer.open()
         img = img.convert("L").filter(ImageFilter.EDGE_ENHANCE)
         width, height = img.size
         if auto_rotate and width > height:
@@ -27,10 +27,10 @@ class Printer:
         # self.printer.image(img, impl="bitImageColumn")
         for i in range(feed_lines):
             self.printer.text(f'{i}\n')
-        self.printer.close()
 
     def feed_lines(self, feed_lines):
-        self.printer.open()
         print(f"feeding {feed_lines} lines")
         self.printer.ln(count=feed_lines)
+
+    def close_connection(self):
         self.printer.close()
