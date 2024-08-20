@@ -138,4 +138,42 @@ input[type=text] {
   }
 }
 
+
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: auto; /* Button width will adjust based on content */
+  height: 50px; /* Adjust the height to your preference */
+  padding: 0 20px; /* Padding inside the button */
+  border: none; /* border */
+  border-radius: 4px; /* Rounded corners */
+  background: #ffffff; /* White background */
+  font-size: 16px; /* Font size */
+  text-align: center;
+  color: #000000; /* Text color */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  outline: none; /* Remove the default focus outline */
+  opacity: 0.75;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+
+  &:hover {
+    opacity: 1;  /* Light gray background on hover */
+  }
+
+  &:active {
+    opacity: 1;
+    background: #999999; /* Darker gray background on click */
+  }
+
+  &:focus {
+    opacity: 1; 
+  }
+
+  &:disabled {
+    opacity: 0.5; 
+    cursor: not-allowed; /* Show not-allowed cursor when disabled */
+  }
+}
   
