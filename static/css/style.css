@@ -36,9 +36,9 @@ input[type=range] {
 
   -webkit-appearance: none;
   width: 100%;
-  height: 8px;
+  height: 25px;
   border-radius: 4px;  
-  background: #ffffff;
+  background: #868686;
   outline: none;
   opacity: 0.6;
   -webkit-transition: .2s;
@@ -50,7 +50,7 @@ input[type=range] {
     appearance: none;
     width: 25px;
     height: 25px;
-    border-radius: 50%; 
+    border-radius: 5%; 
     background: #999999;
     cursor: pointer;
   }
