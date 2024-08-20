@@ -14,15 +14,18 @@ document.addEventListener('DOMContentLoaded', function() {
         let text = document.getElementById("ltext").value
         let bold = document.getElementById("lbold").checked
         let italic = document.getElementById("litalic").checked
-        let fontSize = document.getElementById("lfontsize").value
-        console.log(`printing label with text "${text.value}" ${bold} ${italic} ${fontSize}`)
+        let fontSize = document.getElementById("lfontsizeoutput").value
         
         let url = new URL(window.location.href);
         url.pathname = "/label";
         url.searchParams.append("text", text);
+        url.searchParams.append("bold", bold);
+        url.searchParams.append("italic", italic);
+        url.searchParams.append("fontsize", fontSize);
 
-
-        // fetch
+        console.log(url)
+        
+        // fetch(url);
     });
 
     document.getElementById("ebutton").addEventListener("click", function () {
