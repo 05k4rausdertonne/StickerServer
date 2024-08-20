@@ -15,17 +15,19 @@ document.addEventListener('DOMContentLoaded', function() {
         let bold = document.getElementById("lbold").checked
         let italic = document.getElementById("litalic").checked
         let fontSize = document.getElementById("lfontsizeoutput").value
-        
-        let url = new URL(window.location.href);
-        url.pathname = "/label";
-        url.searchParams.append("text", text);
-        url.searchParams.append("bold", bold);
-        url.searchParams.append("italic", italic);
-        url.searchParams.append("fontsize", fontSize);
+            
+        if (text != '') {
+            let url = new URL(window.location.href);
+            url.pathname = "/label";
+            url.searchParams.append("text", text);
+            url.searchParams.append("bold", bold);
+            url.searchParams.append("italic", italic);
+            url.searchParams.append("fontsize", fontSize);
 
-        console.log(url)
-        
-        fetch(url);
+            console.log(url)
+            
+            fetch(url.href);
+        }
     });
 
     document.getElementById("ebutton").addEventListener("click", function () {
