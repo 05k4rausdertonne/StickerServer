@@ -11,8 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     document.getElementById("lbutton").addEventListener("click", function () {
-        let text = document.getElementById("ltext")
-        console.log(`printing label with text "${text.value}"`)
+        let text = document.getElementById("ltext").value
+        let bold = document.getElementById("lbold").value
+        let italic = document.getElementById("litalic").value
+        let fontSize = document.getElementById("lfontsize").value
+        console.log(`printing label with text "${text.value}" ${bold} ${italic} ${fontSize}`)
         // do stuff
     });
 

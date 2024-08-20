@@ -12,10 +12,10 @@ from emoji_sticker_maker import EmojiStickerMaker
 spacer_size = 35
 
 fonts_path = 'static/fonts/'
-default_font_path = f'{fonts_path}NotoSans-Regular.ttf'
-bold_font_path = f'{fonts_path}NotoSans-Bold.ttf'
-italic_font_path = f'{fonts_path}NotoSans-Italic.ttf'
-bold_italic_font_path = f'{fonts_path}NotoSans-BoldItalic.ttf'
+default_font_path = f'{fonts_path}liberation-sans.ttf'
+bold_font_path = f'{fonts_path}liberation-sans.bold.ttf'
+italic_font_path = f'{fonts_path}liberation-sans.italic.ttf'
+bold_italic_font_path = f'{fonts_path}liberation-sans.bold-italic.ttf'
 emoji_font_path = f'{fonts_path}NotoEmoji.ttf'
 
 def contains_emoji(s):
