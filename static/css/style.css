@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: 'Emojis';
-  src: local('Noto Emoji'), url('../fonts/NotoEmoji.ttf') format('truetype');
+  src: 'static/fonts/NotoEmoji.ttf';
   font-weight: normal;
   font-style: normal;
 }
