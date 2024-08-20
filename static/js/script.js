@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         console.log(url)
         
-        // fetch(url);
+        fetch(url);
     });
 
     document.getElementById("ebutton").addEventListener("click", function () {
