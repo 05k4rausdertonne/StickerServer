@@ -150,7 +150,9 @@ input[type=text] {
 }
 
 #etext {
-  height: 50px;
+  height: 100px;
+  font-size: 32px;
+  text-align: center;
 }
 
 button {
