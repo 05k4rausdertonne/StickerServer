@@ -92,7 +92,7 @@ body {
       cursor: pointer;
       transition: border-color 0.3s ease;
       position: relative;
-      top: 5px; /* Adjust this value to move the thumb down */
+      top: 10px; /* Adjust this value to move the thumb down */
     }
   
     &::-moz-range-thumb {
@@ -104,7 +104,7 @@ body {
       cursor: pointer;
       transition: border-color 0.3s ease;
       position: relative;
-      top: 5px; /* Adjust this value to move the thumb down */
+      top: 10px; /* Adjust this value to move the thumb down */
     }
   
     &::-ms-thumb {
@@ -116,7 +116,7 @@ body {
       cursor: pointer;
       transition: border-color 0.3s ease;
       position: relative;
-      top: 5px; /* Adjust this value to move the thumb down */
+      top: 10px; /* Adjust this value to move the thumb down */
     }
   
     &:hover {
@@ -145,7 +145,7 @@ body {
       );
       border-bottom: var(--slider-track-thickness) solid transparent;
       position: relative;
-      top: -10px; /* Adjust this value to move the track up */
+      top: -4px; /* Adjust this value to move the track up */
     }
   
     &::-moz-range-track {
@@ -155,7 +155,7 @@ body {
       background: var(--track-color-before);
       border-bottom: var(--slider-track-thickness) solid var(--track-color-after);
       position: relative;
-      top: -10px; /* Adjust this value to move the track up */
+      top: -4px; /* Adjust this value to move the track up */
     }
   
     &::-ms-track {
