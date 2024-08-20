@@ -9,7 +9,7 @@ from emoji_sticker_maker import EmojiStickerMaker
 # TODO: build frontend (on it)
 
 # Adjust this values to compensate for your printer
-spacer_size = 35
+spacer_size = 60
 
 fonts_path = 'static/fonts/'
 default_font_path = f'{fonts_path}NotoSans-Regular.ttf'
