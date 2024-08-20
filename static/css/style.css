@@ -4,9 +4,9 @@
 
 @font-face {
   font-family: 'Emojis';
-  src:  url('static/fonts/NotoEmoji.woff2') format('woff2'),
-        url('static/fonts/NotoEmoji.woff') format('woff'),
-        url('static/fonts/NotoEmoji.ttf') format('truetype');
+  src:  url('../fonts/NotoEmoji.woff2') format('woff2'),
+        url('../fonts/NotoEmoji.woff') format('woff'),
+        url('../fonts/NotoEmoji.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
