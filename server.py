@@ -39,7 +39,7 @@ def label():
         if do_emoji:
             for char in text:
                 if contains_emoji(char):
-                    printer.print_image(emoji_sticker_maker.make_emoji_sticker(text))
+                    printer.print_image(emoji_sticker_maker.make_emoji_sticker(char))
             printer.print_spacer(px=spacer_size)
         elif contains_emoji(text):
             printer.print_image(
