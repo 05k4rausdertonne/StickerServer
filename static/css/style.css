@@ -87,7 +87,7 @@ body {
       width: var(--slider-thumb-size);
       height: var(--slider-thumb-size);
       background-color: var(--color-fill);
-      border-radius: 50%; /* Circular thumb */
+      border-radius: 25%; /* Circular thumb */
       border: var(--slider-thumb-border-width) solid var(--color-default);
       cursor: pointer;
       transition: border-color 0.3s ease;
@@ -99,7 +99,7 @@ body {
       width: var(--slider-thumb-size);
       height: var(--slider-thumb-size);
       background-color: var(--color-fill);
-      border-radius: 50%; /* Circular thumb */
+      border-radius: 25%; /* Circular thumb */
       border: var(--slider-thumb-border-width) solid var(--color-default);
       cursor: pointer;
       transition: border-color 0.3s ease;
@@ -111,7 +111,7 @@ body {
       width: var(--slider-thumb-size);
       height: var(--slider-thumb-size);
       background-color: var(--color-fill);
-      border-radius: 50%; /* Circular thumb */
+      border-radius: 25%; /* Circular thumb */
       border: var(--slider-thumb-border-width) solid var(--color-default);
       cursor: pointer;
       transition: border-color 0.3s ease;
@@ -145,7 +145,7 @@ body {
       );
       border-bottom: var(--slider-track-thickness) solid transparent;
       position: relative;
-      top: -4px; /* Adjust this value to move the track up */
+      top: -10px; /* Adjust this value to move the track up */
     }
   
     &::-moz-range-track {
@@ -155,7 +155,7 @@ body {
       background: var(--track-color-before);
       border-bottom: var(--slider-track-thickness) solid var(--track-color-after);
       position: relative;
-      top: -4px; /* Adjust this value to move the track up */
+      top: -10px; /* Adjust this value to move the track up */
     }
   
     &::-ms-track {
