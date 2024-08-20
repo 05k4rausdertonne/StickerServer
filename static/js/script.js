@@ -12,11 +12,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById("lbutton").addEventListener("click", function () {
         let text = document.getElementById("ltext").value
-        let bold = document.getElementById("lbold").value
-        let italic = document.getElementById("litalic").value
+        let bold = document.getElementById("lbold").checked
+        let italic = document.getElementById("litalic").checked
         let fontSize = document.getElementById("lfontsize").value
         console.log(`printing label with text "${text.value}" ${bold} ${italic} ${fontSize}`)
-        // do stuff
+        
+        let url = new URL(window.location.href);
+        url.pathname = "/label";
+        url.searchParams.append("text", text);
+
+
+        // fetch
     });
 
     document.getElementById("ebutton").addEventListener("click", function () {

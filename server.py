@@ -29,11 +29,11 @@ app = Flask(__name__)
 @app.route('/label', methods=['GET'])
 def label():
     # Get the 'text' argument from the URL
-    text = request.args.get('ltext')
-    bold = request.args.get('lbold')
-    italic = request.args.get('litalic')
-    font_size = request.args.get('lfontsize')
-    do_emoji = request.args.get('lemoji')
+    text = request.args.get('text')
+    bold = request.args.get('bold')
+    italic = request.args.get('italic')
+    font_size = request.args.get('fontsize')
+    do_emoji = request.args.get('emoji')
 
     if font_size:
         font_size = int(font_size)
