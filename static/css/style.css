@@ -116,7 +116,7 @@ input[type=text] {
   border-radius: 4px; /* Rounded corners */
   background: #ffffff; /* White background */
   padding: 0 10px; /* Padding inside the input */
-  font-size: 16px; /* Font size */
+  font-size: 20px; /* Font size */
   text-align: center;
   color: #000000; /* Text color */
   outline: none; /* Remove the default focus outline */
@@ -134,7 +134,7 @@ input[type=text] {
   }
 
   &::placeholder {
-    color: #cccccc; /* Placeholder text color */
+    color: #999999; /* Placeholder text color */
   }
 }
 
