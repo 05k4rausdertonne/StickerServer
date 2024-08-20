@@ -71,6 +71,7 @@ input[type=checkbox] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  top: 50%;
   width: 25px;
   height: 25px;
   border: none;
@@ -97,7 +98,7 @@ input[type=checkbox] {
     position: absolute;
     left: 7px;
     top: 0px;
-    width: 8px;
+    width: 7px;
     height: 16px;
     border: solid #ffffff;
     border-width: 0 4px 4px 0;
