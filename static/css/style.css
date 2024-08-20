@@ -111,12 +111,13 @@ input[type=text] {
   -moz-appearance: none;
   appearance: none;
   width: 75%;
-  height: 40px; /* Adjust the height to your preference */
+  height: 50px; /* Adjust the height to your preference */
   border: none; /* Black border */
   border-radius: 4px; /* Rounded corners */
   background: #ffffff; /* White background */
   padding: 0 10px; /* Padding inside the input */
   font-size: 16px; /* Font size */
+  text-align: center;
   color: #000000; /* Text color */
   outline: none; /* Remove the default focus outline */
   box-sizing: border-box; /* Ensure padding and border are included in the element's width and height */
