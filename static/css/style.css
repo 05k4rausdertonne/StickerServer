@@ -4,10 +4,17 @@
 @font-face {
   font-family: 'Emojis';
   src:  
-        /* url('../fonts/Noto.woff2') format('woff2'),
-        url('../fonts/Noto.woff') format('woff'),
-        url('../fonts/Noto.ttf') format('truetype'), */
-        url('../fonts/Noto.otf') format('opentype');
+        url('../fonts/NotoEmoji.woff2') format('woff2'),
+        url('../fonts/NotoEmoji.woff') format('woff'),
+        url('../fonts/NotoEmoji.ttf') format('truetype'),
+        url('../fonts/NotoEmoji.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoSans';
+  src: url('../fonts/NotoSans.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
