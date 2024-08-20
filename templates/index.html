@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@300..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
     <!-- Link to the CSS file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
@@ -41,17 +45,17 @@
                 <input type="range" class="rangeslider" id="lfontsize" name="lfontsize" min="16" max="78" value="35">
                 <output id="lfontsizeoutput">35</output><br><br>
             </form>
-            <button type="button" class="print" id="lbutton" value="Print">🖨️</button>
+            <button type="button" class="print noto-emoji" id="lbutton" value="Print">🖨️</button>
         </div>
         <div class="box">
             <h1>Make an Sticker</h1>
-            <button type="button" class="print" id="ebutton" value="Print">🖨️</button>
+            <button type="button" class="print noto-emoji" id="ebutton" value="Print">🖨️</button>
         </div>
         <div class="box">
             <h1>Print an Image</h1>
             <label for="ifile">Upload an Image</label><br><br>
             <input type="file" id="ifile" name="ifile" accept="image/*"><br><br>
-            <button type="button" class="print" id="ibutton" value="Print">🖨️</button>
+            <button type="button" class="print noto-emoji" id="ibutton" value="Print">🖨️</button>
         </div>
     </div>
 
