@@ -47,7 +47,7 @@ body {
     --color-fill:    #ffffff; /* Thumb fill color */
     --color-default: #bbbbbb; /* Default border color */
     --color-hover:   #888888; /* Hover border color */
-    --color-active:  #444444; /* Active border color */
+    --color-active:  #666666; /* Active border color */
     
     --font-size:     16px;  /* Font size to control the size of the slider */
   }
@@ -63,9 +63,11 @@ body {
     /* Resetting default styles */
     -webkit-appearance: none;
     width: 100%;
+    margin: 0; /* Ensure no unwanted margins */
   
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
+      margin-top: calc((var(--slider-track-height) - var(--slider-thumb-size)) / 2); /* Center the thumb */
     }
   
     &:focus {
@@ -84,12 +86,14 @@ body {
     &::-webkit-slider-thumb {
       width: var(--slider-thumb-size);
       height: var(--slider-thumb-size);
-      margin-top: 0;
       background-color: var(--color-fill);
       border-radius: 50%; /* Circular thumb */
       border: var(--slider-thumb-border-width) solid var(--color-default);
       cursor: pointer;
       transition: border-color 0.3s ease;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%); /* Center thumb vertically */
     }
   
     &::-moz-range-thumb {
@@ -100,6 +104,9 @@ body {
       border: var(--slider-thumb-border-width) solid var(--color-default);
       cursor: pointer;
       transition: border-color 0.3s ease;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%); /* Center thumb vertically */
     }
   
     &::-ms-thumb {
@@ -110,6 +117,9 @@ body {
       border: var(--slider-thumb-border-width) solid var(--color-default);
       cursor: pointer;
       transition: border-color 0.3s ease;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%); /* Center thumb vertically */
     }
   
     &:hover {
@@ -132,11 +142,14 @@ body {
       background: linear-gradient(
         to right,
         var(--track-color-before) 0%,
-        var(--track-color-before) calc(var(--value) * 1%),
-        var(--track-color-after) calc(var(--value) * 1%),
+        var(--track-color-before) 50%,
+        var(--track-color-after) 50%,
         var(--track-color-after) 100%
       );
-      border-bottom: var(--slider-track-thickness) solid transparent; /* Border only for visual alignment */
+      border-bottom: var(--slider-track-thickness) solid transparent;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%); /* Center track vertically */
     }
   
     &::-moz-range-track {
@@ -145,6 +158,9 @@ body {
       height: var(--slider-track-height);
       background: var(--track-color-before);
       border-bottom: var(--slider-track-thickness) solid var(--track-color-after);
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%); /* Center track vertically */
     }
   
     &::-ms-track {
