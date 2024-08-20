@@ -31,6 +31,6 @@ class EmojiStickerMaker:
 
         # Draw the emoji centered in the image
         draw.text((text_x, 0), label[:1], fill='black', font=font)
-        image = image.rotate(90, expand=True)
+        image = image.rotate(-90, expand=True)
 
         return image
