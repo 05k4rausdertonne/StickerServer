@@ -95,6 +95,8 @@ input[type=checkbox] {
   &:checked::after {
     content: '';
     position: absolute;
+    left: 0px;
+    top: 0px;
     width: 10px;
     height: 18px;
     border: none;
