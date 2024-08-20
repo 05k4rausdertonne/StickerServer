@@ -31,9 +31,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.getElementById("ebutton").addEventListener("click", function () {
-        let text = document.getElementById("etext")
-        console.log(`printing label with text "${text.value}"`)
-        // do stuff
+        let text = document.getElementById("etext").value
+            
+        if (text != '') {
+            let url = new URL(window.location.href);
+            url.pathname = "/label";
+            url.searchParams.append("text", text);
+            url.searchParams.append("emoji", true);
+
+            console.log(url)
+            
+            fetch(url.href);
+        }
     });
 
     document.getElementById("ibutton").addEventListener("click", function () {
