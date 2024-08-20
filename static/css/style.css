@@ -1,14 +1,13 @@
 
 /* styles.css */
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@300..700&display=swap');
 
-@font-face {
+/* @font-face {
   font-family: 'Emojis';
-  src: 'static/fonts/NotoEmoji.ttf';
+  src: url('static/fonts/NotoEmoji.ttf');
   font-weight: normal;
   font-style: normal;
-}
+} */
 
 /* General styling */
 body {
