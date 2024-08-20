@@ -1,6 +1,13 @@
 
 /* styles.css */
 
+@font-face {
+  font-family: 'Emojis';
+  src: url('../fonts/NotoEmoji.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* General styling */
 body {
     font-family: Arial, sans-serif;
@@ -175,5 +182,11 @@ button {
     opacity: 0.5; 
     cursor: not-allowed; /* Show not-allowed cursor when disabled */
   }
+}
+
+button .print{
+  font-family: 'Emojis', Arial, sans-serif;
+  color: #000000;
+  font-size: 24px;
 }
   

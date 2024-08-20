@@ -6,10 +6,17 @@ from print_image import Printer
 from label_maker import LabelMaker
 from emoji_sticker_maker import EmojiStickerMaker
 
-# TODO: build frontend
+# TODO: build frontend (on it)
 
 # Adjust this values to compensate for your printer
 spacer_size = 35
+
+fonts_path = 'static/fonts/'
+default_font_path = f'{fonts_path}liberation-sans.ttf'
+bold_font_path = f'{fonts_path}liberation-sans.bold.ttf'
+italic_font_path = f'{fonts_path}liberation-sans.italic.ttf'
+bold_italic_font_path = f'{fonts_path}liberation-sans.bold-italic.ttf'
+emoji_font_path = f'{fonts_path}NotoEmoji.ttf'
 
 def contains_emoji(s):
     return any(char in EMOJI_DATA for char in s)
@@ -39,40 +46,43 @@ def label():
         if do_emoji:
             for char in text:
                 if contains_emoji(char):
-                    printer.print_image(emoji_sticker_maker.make_emoji_sticker(char))
+                    printer.print_image(emoji_sticker_maker.make_emoji_sticker(char, emoji_font_path))
+                else:
+                    printer.print_image(emoji_sticker_maker.make_emoji_sticker(char, default_font_path))
             printer.print_spacer(px=spacer_size)
         elif contains_emoji(text):
             printer.print_image(
                 label_maker.make_label(
                     text, 
-                    font_path='NotoEmoji.ttf', 
+                    font_path=emoji_font_path, 
                     font_size=font_size))
             printer.print_spacer(px=spacer_size)
         elif bold and not italic:
             printer.print_image(
                 label_maker.make_label(
                     text, 
-                    font_path='liberation-sans.bold.ttf', 
+                    font_path=bold_font_path, 
                     font_size=font_size))
             printer.print_spacer(px=spacer_size)
         elif not bold and italic:
             printer.print_image(
                 label_maker.make_label(
                     text, 
-                    font_path='liberation-sans.italic.ttf', 
+                    font_path=italic_font_path, 
                     font_size=font_size))
             printer.print_spacer(px=spacer_size)
         elif bold and italic:
             printer.print_image(
                 label_maker.make_label(
                     text, 
-                    font_path='liberation-sans.bold-italic.ttf', 
+                    font_path=bold_italic_font_path, 
                     font_size=font_size))
             printer.print_spacer(px=spacer_size)
         else:
             printer.print_image(
                 label_maker.make_label(
                     text, 
+                    font_path=default_font_path,
                     font_size=font_size))
             printer.print_spacer(px=spacer_size)
 

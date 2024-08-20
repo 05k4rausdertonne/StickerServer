@@ -5,7 +5,7 @@ class EmojiStickerMaker:
     def __init__(self):
         return
 
-    def make_emoji_sticker(self, label, font_path='NotoEmoji.ttf'):   
+    def make_emoji_sticker(self, label, font_path):   
         image_size = 384
         emoji_size = 325
 
