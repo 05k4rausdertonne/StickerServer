@@ -67,7 +67,7 @@ body {
   
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
-      margin-top: calc((var(--slider-track-height) - var(--slider-thumb-size)) / 2); /* Center the thumb */
+      margin-top: calc((var(--slider-track-height) - var(--slider-thumb-size)) / 2); /* Adjust the thumb position */
     }
   
     &:focus {
@@ -92,8 +92,7 @@ body {
       cursor: pointer;
       transition: border-color 0.3s ease;
       position: relative;
-      top: 50%;
-      transform: translateY(-50%); /* Center thumb vertically */
+      top: 5px; /* Adjust this value to move the thumb down */
     }
   
     &::-moz-range-thumb {
@@ -105,8 +104,7 @@ body {
       cursor: pointer;
       transition: border-color 0.3s ease;
       position: relative;
-      top: 50%;
-      transform: translateY(-50%); /* Center thumb vertically */
+      top: 5px; /* Adjust this value to move the thumb down */
     }
   
     &::-ms-thumb {
@@ -118,8 +116,7 @@ body {
       cursor: pointer;
       transition: border-color 0.3s ease;
       position: relative;
-      top: 50%;
-      transform: translateY(50%); /* Center thumb vertically */
+      top: 5px; /* Adjust this value to move the thumb down */
     }
   
     &:hover {
@@ -148,8 +145,7 @@ body {
       );
       border-bottom: var(--slider-track-thickness) solid transparent;
       position: relative;
-      top: 50%;
-      transform: translateY(-50%); /* Center track vertically */
+      top: -4px; /* Adjust this value to move the track up */
     }
   
     &::-moz-range-track {
@@ -159,8 +155,7 @@ body {
       background: var(--track-color-before);
       border-bottom: var(--slider-track-thickness) solid var(--track-color-after);
       position: relative;
-      top: 50%;
-      transform: translateY(-50%); /* Center track vertically */
+      top: -4px; /* Adjust this value to move the track up */
     }
   
     &::-ms-track {
@@ -177,3 +172,4 @@ body {
       background: var(--track-color-after);
     }
   }
+  
