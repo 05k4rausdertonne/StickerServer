@@ -3,12 +3,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let sliders = document.getElementsByClassName("rangeslider");
 
-    sliders.forEach(slider=> {
+    for (let slider of sliders)  {
         let output = document.getElementsById(`${slider.id}output`)
         slider.addEventListener("input", function  () {
             output.value = slider.value;
         });
-    });
+    }
 
     document.getElementsById("lbutton").addEventListener("click", function () {
         
