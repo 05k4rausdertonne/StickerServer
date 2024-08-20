@@ -11,9 +11,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     document.getElementById("lbutton").addEventListener("click", function () {
-        
-        console.log(`printing label with text "${form.elements.ltext.value}"`)
+        let text = document.getElementById("ltext")
+        console.log(`printing label with text "${text.value}"`)
         // do stuff
     });
 
+    document.getElementById("ebutton").addEventListener("click", function () {
+        let text = document.getElementById("etext")
+        console.log(`printing label with text "${text.value}"`)
+        // do stuff
+    });
+
+    document.getElementById("ibutton").addEventListener("click", function () {
+        let text = document.getElementById("ifile")
+        console.log(`printing label with text "${text.value}"`)
+        // do stuff
+    });
 });
