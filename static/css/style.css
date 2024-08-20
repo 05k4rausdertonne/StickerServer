@@ -99,8 +99,8 @@ input[type=checkbox] {
     top: 0px;
     width: 10px;
     height: 18px;
-    border: none;
-    border-width: none;
+    border: solid #ffffff;
+    border-width: 0 4px 4px 0;
     transform: rotate(45deg);
   }
 }
