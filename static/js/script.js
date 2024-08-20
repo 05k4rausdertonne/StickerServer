@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let sliders = document.getElementsByClassName("rangeslider");
 
     for (let slider of sliders)  {
-        let output = document.getElementsById(`${slider.id}output`)
+        let output = document.getElementById(`${slider.id}output`)
         slider.addEventListener("input", function  () {
             output.value = slider.value;
         });
