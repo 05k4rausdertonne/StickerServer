@@ -7,6 +7,7 @@
         url('../fonts/NotoEmoji.woff2') format('woff2'),
         url('../fonts/NotoEmoji.woff') format('woff'),
         url('../fonts/NotoEmoji.ttf') format('truetype'),
+        url('../fonts/NotoSans.ttf') format('truetype'),
         url('../fonts/NotoEmoji.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
@@ -21,7 +22,7 @@
 
 /* General styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Emojis', Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
