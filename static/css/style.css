@@ -214,10 +214,5 @@ button.print{
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  word-spacing: normal;
-}
-
-.noto-emoji::after {
-  content: '\00A0'; /* Non-breaking space */
-  font-family: 'NotoSans';
+  word-spacing: -1em;
 }
