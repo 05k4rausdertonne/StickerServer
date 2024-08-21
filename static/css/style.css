@@ -1,5 +1,13 @@
 
 /* styles.css */
+:root {
+  --color-1:#0B132B;
+  --color-2:#EF767A;
+  --color-3:#EAEAEA;
+  --color-4:#7765E3;
+  --color-5:#1D3272;
+}
+
 
 @font-face {
   font-family: 'Emojis';
@@ -25,7 +33,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #202020;
+    background-color: var(--color-1);
 }
 
 .container {
@@ -44,7 +52,7 @@ body {
     color: white;
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light drop shadow */
-    background-color: #404040;
+    background-color: var(--color-5);
 }
 /* Responsive behavior */
 @media (max-width: 768px) {
@@ -58,7 +66,7 @@ input[type=range] {
   width: 100%;
   height: 25px;
   border-radius: 4px;  
-  background: #ffffff;
+  background: var(--color-3);
   outline: none;
   opacity: 0.75;
   -webkit-transition: .2s;
@@ -75,7 +83,7 @@ input[type=range] {
     width: 25px;
     height: 25px;
     border-radius: 5%; 
-    background: #999999;
+    background: var(--color-2);
     cursor: pointer;
   }
 
@@ -83,7 +91,7 @@ input[type=range] {
     width: 25px;
     height: 25px;
     border-radius: 5%;
-    background: #999999;
+    background: var(--color-2);
     cursor: pointer;
   }
 }
@@ -97,7 +105,7 @@ input[type=checkbox] {
   height: 25px;
   border: none;
   border-radius: 5%;
-  background: #ffffff;
+  background: var(--color-3);
   cursor: pointer;
   position: relative;
   opacity: 0.75;
@@ -110,8 +118,8 @@ input[type=checkbox] {
   }
 
   &:checked {
-    background: #999999; /* Black background when checked */
-    border-color: #999999;
+    background: var(--color-2); /* Black background when checked */
+    border-color: var(--color-2);
   }
 
   &:checked::after {
@@ -121,7 +129,7 @@ input[type=checkbox] {
     top: 0px;
     width: 7px;
     height: 16px;
-    border: solid #ffffff;
+    border: solid var(--color-3);
     border-width: 0 4px 4px 0;
     transform: rotate(45deg);
   }
@@ -135,7 +143,7 @@ input[type=text] {
   height: 50px; /* Adjust the height to your preference */
   border: none; /* Black border */
   border-radius: 4px; /* Rounded corners */
-  background: #ffffff; /* White background */
+  background: var(--color-3); /* White background */
   padding: 0 10px; /* Padding inside the input */
   font-size: 20px; /* Font size */
   text-align: center;
@@ -155,7 +163,7 @@ input[type=text] {
   }
 
   &::placeholder {
-    color: #999999; /* Placeholder text color */
+    color: var(--color-2); /* Placeholder text color */
   }
 }
 
@@ -174,7 +182,7 @@ button {
   padding: 0 20px; /* Padding inside the button */
   border: none; /* border */
   border-radius: 4px; /* Rounded corners */
-  background: #ffffff; /* White background */
+  background: var(--color-3); /* White background */
   font-size: 16px; /* Font size */
   text-align: center;
   color: #000000; /* Text color */
@@ -190,7 +198,7 @@ button {
 
   &:active {
     opacity: 1;
-    background: #999999; /* Darker gray background on click */
+    background: var(--color-2); /* Darker gray background on click */
   }
 
   &:focus {
