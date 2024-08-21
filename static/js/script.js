@@ -1,4 +1,8 @@
 // static/js/script.js
+function removeFE0F(str) {
+    return str.replace(/\uFE0F/g, '');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
 
     let sliders = document.getElementsByClassName("rangeslider");
@@ -31,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.getElementById("ebutton").addEventListener("click", function () {
-        let text = document.getElementById("etext").value
+        let text = removeFE0F(document.getElementById("etext").value)
             
         if (text != '') {
             let url = new URL(window.location.href);
