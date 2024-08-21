@@ -223,4 +223,9 @@ button.print{
   font-weight: 400;
   font-style: normal;
   word-spacing: -0.4em;
+  &::placeholder {
+    font-size: 20px; /* Placeholder text color */
+    font-family: 'NotoSans';
+    word-spacing: 0em;
+  }
 }
