@@ -6,7 +6,6 @@ from print_image import Printer
 from label_maker import LabelMaker
 from emoji_sticker_maker import EmojiStickerMaker
 
-# TODO: build frontend (on it)
 
 # Adjust this values to compensate for your printer
 spacer_size = 60

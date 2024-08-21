@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById("ibutton").addEventListener("click", function () {
         let text = document.getElementById("ifile")
-        console.log(`printing label with text "${text.value}"`)
-        // do stuff
+        // TODO: do stuff
     });
 });
