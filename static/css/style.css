@@ -285,10 +285,10 @@ input[type=file]::file-selector-button {
   padding: 0 20px; /* Padding inside the button */
   border: none; /* border */
   border-radius: 4px; /* Rounded corners */
-  background: var(--color-3); /* White background */
+  background: var(--color-2); /* White background */
   font-size: 16px; /* Font size */
   text-align: center;
-  color: var(--color-2); /* Text color */
+  color: var(--color-3); /* Text color */
   cursor: pointer; /* Change cursor to pointer on hover */
   outline: none; /* Remove the default focus outline */
   opacity: 0.75;
