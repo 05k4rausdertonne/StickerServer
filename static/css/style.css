@@ -87,10 +87,13 @@ input[type=range] {
     border: none;
     background: var(--color-2);
     cursor: pointer;
-    transition: background .2s;
-    &:hover {
-      background: var(--color-4);
-    }
+  }
+
+  &::-webkit-slider-runnable-track {
+    height: 10px;
+    -webkit-appearance: none;
+    color: var(--color-4);
+    margin-top: -1px;
   }
 
   &::-moz-range-thumb {
@@ -100,10 +103,9 @@ input[type=range] {
     border: none;
     background: var(--color-2);
     cursor: pointer;
-    transition: background .2s;
-    &:hover {
-      background: var(--color-4);
-    }
+  }
+  &::-moz-range-progress {
+    background-color: var(--color-4); 
   }
 }
 
