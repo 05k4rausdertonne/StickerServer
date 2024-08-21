@@ -8,8 +8,11 @@ class Printer:
         self.printer = Usb(vendor_id, product_id, 0, timeout=5000)
         self.printer.open()
     
-    def print_image(self, img, auto_rotate=False, print_width=384, feed_lines=1):
-        img = img.convert("L").filter(ImageFilter.EDGE_ENHANCE)
+    def print_image(self, img, auto_rotate=False, print_width=384, edge_enhance=True):
+        img = img.convert("L")
+        if edge_enhance:
+            img = img.filter(ImageFilter.EDGE_ENHANCE)
+            
         width, height = img.size
         if auto_rotate and width > height:
             # rotate image

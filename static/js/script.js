@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const fileInput = document.getElementById('ifile');
 
         let autoRotate = document.getElementById('iautorotate').checked
+        let edgeEnhance = document.getElementById('iedgeenhance').checked
     
         // Get the selected file from the input element
         const file = fileInput.files[0];
@@ -73,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let url = new URL(window.location.href);
         url.pathname = '/image';
         url.searchParams.append('autorotate', autoRotate);
+        url.searchParams.append('autorotate', edgeEnhance);
     
         try {
             // Send the file using fetch with a POST request
@@ -85,15 +87,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // Check if the request was successful
             if (response.ok) {
                 const result = await response.json();
-                alert('File uploaded successfully!');
                 console.log('Server response:', result);
             } else {
-                alert('File upload failed!');
                 console.log('Server error:', response.statusText);
             }
         } catch (error) {
             console.error('Error uploading file:', error);
-            alert('There was an error uploading the file.');
         }
     });
 });

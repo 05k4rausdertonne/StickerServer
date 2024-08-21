@@ -94,11 +94,16 @@ def home():
     
 @app.route("/image",methods=["POST"])
 def image():
+
     image=request.files['file']
     auto_rotate = request.args.get('autorotate') == 'true'
+    edge_enhance = request.args.get('edgeenhance') == 'true'
+
     pil_image = Image.open(image)
-    printer.print_image(pil_image, auto_rotate=auto_rotate)
+
+    printer.print_image(pil_image, auto_rotate=auto_rotate, edge_enhance=edge_enhance)
     printer.print_spacer(px=spacer_size)
+
     return jsonify({"message": "Image processed successfully"}), 200
 
 if __name__ == '__main__':
