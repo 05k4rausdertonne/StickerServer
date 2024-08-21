@@ -49,8 +49,51 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    document.getElementById("ibutton").addEventListener("click", function () {
-        let text = document.getElementById("ifile")
-        // TODO: do stuff
+
+    document.getElementById('iform').addEventListener('submit', async function(event) {
+        event.preventDefault();  // Prevent the default form submission
+    
+        // Get the file input element
+        const fileInput = document.getElementById('file-input');
+
+        let autoRotate = document.getElementById("iautorotate").checked
+    
+        // Get the selected file from the input element
+        const file = fileInput.files[0];
+    
+        if (!file) {
+            alert("Please select a file before submitting.");
+            return;
+        }
+    
+        // Create a FormData object to hold the file
+        const formData = new FormData();
+        formData.append('file', file);
+
+        let url = new URL(window.location.href);
+        url.pathname = "/image";
+        url.searchParams.append("autorotate", autoRotate);
+    
+        try {
+            // Send the file using fetch with a POST request
+            const response = await fetch(url.href, {
+                method: 'POST',
+                body: formData,
+                
+            });
+    
+            // Check if the request was successful
+            if (response.ok) {
+                const result = await response.json();
+                alert('File uploaded successfully!');
+                console.log('Server response:', result);
+            } else {
+                alert('File upload failed!');
+                console.log('Server error:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error uploading file:', error);
+            alert('There was an error uploading the file.');
+        }
     });
 });

@@ -1,4 +1,5 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
+
 from PIL import Image
 from emoji import EMOJI_DATA
 
@@ -29,10 +30,10 @@ app = Flask(__name__)
 def label():
     # Get the 'text' argument from the URL
     text = request.args.get('text')
-    bold = request.args.get('bold')
-    italic = request.args.get('italic')
+    bold = request.args.get('bold') == 'true'
+    italic = request.args.get('italic') == 'true'
     font_size = request.args.get('fontsize')
-    do_emoji = request.args.get('emoji')
+    do_emoji = request.args.get('emoji') == 'true'
 
     if font_size:
         font_size = int(font_size)
@@ -94,9 +95,11 @@ def home():
 @app.route("/image",methods=["POST"])
 def image():
     image=request.files['file']
+    auto_rotate = request.args.get('autorotate') == 'true'
     pil_image = Image.open(image)
-    printer.print_image(pil_image, auto_rotate=True)
+    printer.print_image(pil_image, auto_rotate=auto_rotate)
     printer.print_spacer(px=spacer_size)
+    return jsonify({"message": "Image processed successfully"}), 200
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

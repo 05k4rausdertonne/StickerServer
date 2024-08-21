@@ -37,9 +37,13 @@
         </div>
         <div class="box">
             <h1>Print an Image</h1>
-            <label for="ifile">Upload an Image</label><br><br>
-            <input type="file" id="ifile" name="ifile" accept="image/*"><br><br>
-            <button type="button" class="print noto-emoji" id="ibutton" value="Print">🖨️</button>
+            <label for="iautorotate">auto rotate</label>
+            <input type="checkbox" id="iautorotate" name="iautorotate"><br><br>
+            <form id="iform">
+                <input type="file" id="ifile" name="ifile" accept="image/*"><br><br>
+                <button type="submit" class="print noto-emoji" id="ibutton" value="Print">🖨️</button>
+            </form>
+
         </div>
     </div>
 
