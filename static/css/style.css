@@ -69,6 +69,7 @@ input[type=range] {
   border: none;
   background: var(--color-3);
   outline: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light drop shadow */
   opacity: 0.75;
   -webkit-transition: .2s;
   transition: opacity .2s;
@@ -129,6 +130,7 @@ input[type=checkbox] {
   border: none;
   border-radius: 5%;
   background: var(--color-3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light drop shadow */
   cursor: pointer;
   position: relative;
   opacity: 0.75;
@@ -170,9 +172,10 @@ input[type=text] {
   padding: 0 10px; /* Padding inside the input */
   font-size: 20px; /* Font size */
   text-align: center;
-  color: #000000; /* Text color */
+  color: var(--color-1); /* Text color */
   outline: none; /* Remove the default focus outline */
   box-sizing: border-box; /* Ensure padding and border are included in the element's width and height */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light drop shadow */
   opacity: 0.75;
   -webkit-transition: .2s;
   transition: opacity .2s;
@@ -208,9 +211,10 @@ button {
   background: var(--color-3); /* White background */
   font-size: 16px; /* Font size */
   text-align: center;
-  color: #000000; /* Text color */
+  color: var(--color-1); /* Text color */
   cursor: pointer; /* Change cursor to pointer on hover */
   outline: none; /* Remove the default focus outline */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light drop shadow */
   opacity: 0.75;
   -webkit-transition: .2s;
   transition: opacity .2s;
@@ -266,6 +270,7 @@ input[type=file] {
   border-radius: 4px;
   font-size: 16px;
   border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light drop shadow */
   opacity: 0.75;
   -webkit-transition: .2s;
   transition: opacity .2s;
@@ -291,6 +296,7 @@ input[type=file]::file-selector-button {
   color: var(--color-3); /* Text color */
   cursor: pointer; /* Change cursor to pointer on hover */
   outline: none; /* Remove the default focus outline */
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); /* Light drop shadow */
   opacity: 0.75;
   -webkit-transition: .2s;
   transition: opacity .2s;
