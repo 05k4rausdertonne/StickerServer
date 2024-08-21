@@ -11,7 +11,7 @@ from emoji_sticker_maker import EmojiStickerMaker
 # Adjust this values to compensate for your printer
 spacer_size = 60
 
-fonts_path = 'static/fonts/'
+fonts_path = '/home/pi/StickerServer/static/fonts/'
 default_font_path = f'{fonts_path}NotoSans-Regular.ttf'
 bold_font_path = f'{fonts_path}NotoSans-Bold.ttf'
 italic_font_path = f'{fonts_path}NotoSans-Italic.ttf'
