@@ -37,6 +37,7 @@ body {
     flex: 1; /* Each box will take up equal width */
     margin: 20px;
     padding: 20px;
+    position: relative;
     text-align: center;
     flex-direction: column;
     color: white;
@@ -209,7 +210,7 @@ button {
 button.print{
   color: #000000;
   font-size: 24px;
-  position: relative;
+  position: absolute;
   bottom: 0;
   margin-top: auto;
 }
