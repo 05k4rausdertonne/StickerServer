@@ -75,6 +75,8 @@ document.addEventListener('DOMContentLoaded', function() {
         url.pathname = '/image';
         url.searchParams.append('autorotate', autoRotate);
         url.searchParams.append('autorotate', edgeEnhance);
+
+        console.log(url);
     
         try {
             // Send the file using fetch with a POST request
