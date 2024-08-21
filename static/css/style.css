@@ -211,7 +211,8 @@ button.print{
   color: #000000;
   font-size: 24px;
   position: absolute;
-  bottom: 0;
+  align-self: center;
+  bottom: 20px;
   margin-top: auto;
   margin-bottom: auto;
 }
