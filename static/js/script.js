@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let url = new URL(window.location.href);
         url.pathname = '/image';
         url.searchParams.append('autorotate', autoRotate);
-        url.searchParams.append('autorotate', edgeEnhance);
+        url.searchParams.append('edgeenhance', edgeEnhance);
 
         console.log(url);
     
