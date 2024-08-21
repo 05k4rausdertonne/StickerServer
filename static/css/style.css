@@ -92,8 +92,13 @@ input[type=range] {
   &::-webkit-slider-runnable-track {
     height: 10px;
     -webkit-appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 5%;
+    border: none;
     color: var(--color-4);
     margin-top: -1px;
+    cursor: pointer;
   }
 
   &::-moz-range-thumb {
@@ -105,7 +110,12 @@ input[type=range] {
     cursor: pointer;
   }
   &::-moz-range-progress {
+    width: 25px;
+    height: 25px;
+    border-radius: 5%;
+    border: none;
     background-color: var(--color-4); 
+    cursor: pointer;
   }
 }
 
