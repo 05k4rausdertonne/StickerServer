@@ -213,6 +213,7 @@ button.print{
   position: absolute;
   bottom: 0;
   margin-top: auto;
+  margin-bottom: auto;
 }
   
 .noto-emoji {
