@@ -10,9 +10,7 @@ class Printer:
     
     def print_image(self, img, auto_rotate=False, print_width=384, edge_enhance=True):
         img = img.convert("L")
-        if edge_enhance:
-            img = img.filter(ImageFilter.EDGE_ENHANCE)
-            
+
         width, height = img.size
         if auto_rotate and width > height:
             # rotate image
@@ -24,6 +22,9 @@ class Printer:
         scalar = print_width / width
         new_size = (int(width * scalar), int(height * scalar))
         img = img.resize(new_size, Image.LANCZOS)
+
+        if edge_enhance:
+            img = img.filter(ImageFilter.EDGE_ENHANCE)
         
         # print image
         self.printer.ln()
