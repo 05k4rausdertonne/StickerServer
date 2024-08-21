@@ -164,6 +164,7 @@ input[type=text] {
 
   &::placeholder {
     font-size: 20px; /* Placeholder text color */
+    font-family: 'NotoSans';
   }
 }
 
@@ -218,5 +219,5 @@ button.print{
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  word-spacing: -0.2em;
+  word-spacing: -0.4em;
 }
