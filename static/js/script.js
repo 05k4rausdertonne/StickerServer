@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    document.getElementById('lbutton').addEventListener('click', function () {
+    document.getElementById('lbutton').addEventListener('click', async function () {
         let text = document.getElementById('ltext').value
         let bold = document.getElementById('lbold').checked
         let italic = document.getElementById('litalic').checked
@@ -30,11 +30,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
             console.log(url)
             
-            fetch(url.href);
+            const response = await fetch(url.href);
+
+            // Check if the request was successful
+            if (response.ok) {
+                const result = await response.json();
+                console.log('Server response:', result);
+            } else {
+                console.log('Server error:', response.statusText);
+                alert('Server error:', response.statusText);
+            }
         }
     });
 
-    document.getElementById('ebutton').addEventListener('click', function () {
+    document.getElementById('ebutton').addEventListener('click', async function () {
         let text = removeFE0F(document.getElementById('etext').value)
             
         if (text != '') {
@@ -45,7 +54,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
             console.log(url)
             
-            fetch(url.href);
+            const response = await fetch(url.href);
+
+            // Check if the request was successful
+            if (response.ok) {
+                const result = await response.json();
+                console.log('Server response:', result);
+            } else {
+                console.log('Server error:', response.statusText);
+                alert('Server error:', response.statusText);
+            }
         }
     });
 
