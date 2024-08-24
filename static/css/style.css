@@ -56,17 +56,17 @@ body {
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Light drop shadow */
     background-color: var(--color-5);
 }
-/* Responsive behavior */
-/* @media (max-width: 1200px) {
-  .box {
-      flex-basis: 200%;
-  }
-} */
 
-@media (max-width: 750px) {
+@media (max-width: 768px) {
     .box {
-        flex-basis: 50%; /* Make each box take full width when screen not as wide */
+        flex-basis: 100%; /* Make each box take full width when screen not as wide */
     }
+}
+
+@media (min-width: 751px) and (max-width: 1024px) {
+  .box {
+      flex-basis: 50%;
+  }
 }
 
 
