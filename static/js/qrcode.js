@@ -387,6 +387,7 @@ var QRCode;
 			var nRoundedHeight = Math.round(nHeight);
 
 			_elImage.style.display = "none";
+			_elImage.class = "qrimage";
 			this.clear();
 			
 			for (var row = 0; row < nCount; row++) {
