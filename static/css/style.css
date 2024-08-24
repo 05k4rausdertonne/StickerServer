@@ -306,14 +306,14 @@ input[type=file]::file-selector-button {
   &:hover {
     opacity: 1;  /* Light gray background on hover */
   }
+}
 
-  /* .qrdiv {
-    width: 75%;
-    align-content: center;
-  } */
+.qrdiv {
+  width: 75%;
+  align-content: center;
+}
 
-  img.qrimage {
-    align-self: center !important;
-    width: 75% !important;
-  }
+img.qrimage {
+  align-self: center !important;
+  width: 75% !important;
 }
