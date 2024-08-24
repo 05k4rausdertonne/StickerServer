@@ -150,7 +150,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('qrtext').addEventListener('input', async function () {
         qrcode.clear(); // clear the code.
-        let text = document.getElementById('qrtext').value
+        let text = document.getElementById('qrtext').value;
+
+        console.log(`qr text: ${text}`);
+        
         if (text = "") {
             qrcode.makeCode("http://makestickers.local/");
         }
