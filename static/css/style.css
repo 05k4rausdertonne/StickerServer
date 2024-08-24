@@ -309,6 +309,7 @@ input[type=file]::file-selector-button {
 }
 
 .qrdiv {
+  display: flex;
   width: 75%;
   align-self: center !important;
   align-content: center !important;
