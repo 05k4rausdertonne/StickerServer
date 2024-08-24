@@ -154,7 +154,6 @@ document.addEventListener('DOMContentLoaded', function() {
         else {
             qrcode.makeCode(text);
         }
-        document.getElementById('qrdiv').getElementsByTagName('img')[0].class='qrimage'; 
     });
 
     document.getElementById('qrbutton').addEventListener('click', async function () {
@@ -162,6 +161,4 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(document.getElementById('qrdiv').getElementsByTagName('img')[0]);
         
     });
-
-    document.getElementById('qrdiv').getElementsByTagName('img')[0].class='qrimage'; 
 });
