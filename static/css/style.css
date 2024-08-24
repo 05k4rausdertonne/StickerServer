@@ -242,12 +242,12 @@ button {
 }
 
 button.print{
-  font-size: 75px;
   position: absolute;
   transform: translateX(-50%);
   align-self: center;
   height: 75px;
   bottom: 20px;
+  padding-top: 10px;
   align-items: center; /* Centers content vertically */
   justify-content: center; /* Centers content horizontally */
   margin-top: auto;
