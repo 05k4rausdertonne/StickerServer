@@ -11,8 +11,8 @@ class Printer:
         except Exception as e:
             self.printer = None
             print(f"Warning: Failed to initialize the USB printer. Error: {e}")
-      
-            
+
+
     def print_image(self, img, auto_rotate=False, print_width=384, edge_enhance=True):
 
         if self.printer == None:
@@ -23,7 +23,7 @@ class Printer:
                 self.printer = None
                 print(f"Warning: Failed to initialize the USB printer. Error: {e}")
                 print("Aborting print!")
-                return
+                return False
 
         img = img.convert("L")
 
@@ -45,6 +45,8 @@ class Printer:
         # print image
         self.printer.ln()
         self.printer.image(img, impl="bitImageColumn")
+
+        return True
         
 
     def print_spacer(self, px=10, print_width=384):
@@ -57,16 +59,17 @@ class Printer:
                 self.printer = None
                 print(f"Warning: Failed to initialize the USB printer. Error: {e}")
                 print("Aborting print!")
-                return
+                return False
 
         spacer = Image.new('1', (print_width, px), 'white')
         self.printer.ln()
         self.printer.image(spacer, impl="bitImageColumn")
+        return True
 
 
-    def feed_lines(self, feed_lines):
-        print(f"feeding {feed_lines} lines")
-        self.printer.ln(count=feed_lines)
+    # def feed_lines(self, feed_lines):
+    #     print(f"feeding {feed_lines} lines")
+    #     self.printer.ln(count=feed_lines)
 
 
     def close_connection(self):
