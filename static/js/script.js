@@ -139,11 +139,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var qrcode = new QRCode('qrdiv', {
         text: "http://makestickers.local/",
-        width: 384,
-        height: 384,
         colorDark : color1,
-        colorLight : color5,
-        correctLevel : QRCode.CorrectLevel.H
+        colorLight : color5
     });
 
     
