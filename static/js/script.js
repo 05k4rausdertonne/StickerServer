@@ -169,7 +169,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.getElementById('qrbutton').addEventListener('click', async function () {
-        
-        console.log(document.getElementsByClassName('qrimage')[1]);        
+
+        console.log(document.getElementsByClassName('qrimage').length);
+        console.log(document.getElementsByClassName('qrimage').length);   
     });
 });
