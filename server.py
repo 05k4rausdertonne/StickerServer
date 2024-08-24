@@ -42,51 +42,53 @@ def label():
     if text and text != "":
         # Print the text to the console
         print(f"Received text: {text}")
-        
+
         if do_emoji:
             for char in text:
                 if contains_emoji(char):
                     printer.print_image(emoji_sticker_maker.make_emoji_sticker(char, emoji_font_path))
                 else:
                     printer.print_image(emoji_sticker_maker.make_emoji_sticker(char, default_font_path))
-            printer.print_spacer(px=spacer_size)
+            success = printer.print_spacer(px=spacer_size)
         elif contains_emoji(text):
             printer.print_image(
                 label_maker.make_label(
                     text, 
                     font_path=emoji_font_path, 
                     font_size=font_size))
-            printer.print_spacer(px=spacer_size)
+            success = printer.print_spacer(px=spacer_size)
         elif bold and not italic:
             printer.print_image(
                 label_maker.make_label(
                     text, 
                     font_path=bold_font_path, 
                     font_size=font_size))
-            printer.print_spacer(px=spacer_size)
+            success = printer.print_spacer(px=spacer_size)
         elif not bold and italic:
             printer.print_image(
                 label_maker.make_label(
                     text, 
                     font_path=italic_font_path, 
                     font_size=font_size))
-            printer.print_spacer(px=spacer_size)
+            success = printer.print_spacer(px=spacer_size)
         elif bold and italic:
             printer.print_image(
                 label_maker.make_label(
                     text, 
                     font_path=bold_italic_font_path, 
                     font_size=font_size))
-            printer.print_spacer(px=spacer_size)
+            success = printer.print_spacer(px=spacer_size)
         else:
             printer.print_image(
                 label_maker.make_label(
                     text, 
                     font_path=default_font_path,
                     font_size=font_size))
-            printer.print_spacer(px=spacer_size)
-
-    return render_template('index.html'), 200
+            success = printer.print_spacer(px=spacer_size)
+    if success:
+        return render_template('index.html'), 200
+    else:
+        return 'Error: Printer not working, maybe its not initialized?', 503
     
 @app.route('/', methods=['GET'])
 def home():
@@ -102,9 +104,12 @@ def image():
     pil_image = Image.open(image)
 
     printer.print_image(pil_image, auto_rotate=auto_rotate, edge_enhance=edge_enhance)
-    printer.print_spacer(px=spacer_size)
+    success = printer.print_spacer(px=spacer_size)
 
-    return jsonify({"message": "Image processed successfully"}), 200
+    if success:
+        return jsonify({"message": "Image processed successfully"}), 200
+    else:
+        return jsonify({"message": "Error: Printer not working, maybe its not initialized?"}), 503
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
