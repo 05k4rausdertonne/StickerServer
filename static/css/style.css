@@ -307,6 +307,6 @@ input[type=file]::file-selector-button {
   }
 
   div.qrdiv {
-    margin: 20px;
+    width: 75%;
   }
 }
