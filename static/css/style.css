@@ -57,7 +57,7 @@ body {
     background-color: var(--color-5);
 }
 /* Responsive behavior */
-@media (max-width: 900px) {
+@media (max-width: 950px) {
     .box {
         flex-basis: 100%; /* Make each box take full width when screen not as wide */
     }
