@@ -44,11 +44,15 @@ def label():
         print(f"Received text: {text}")
 
         if do_emoji:
+            if len(text) > 1:
+                rotate = True
+            else:
+                rotate = False
             for char in text:
                 if contains_emoji(char):
-                    printer.print_image(emoji_sticker_maker.make_emoji_sticker(char, emoji_font_path))
+                    printer.print_image(emoji_sticker_maker.make_emoji_sticker(char, emoji_font_path, rotate))
                 else:
-                    printer.print_image(emoji_sticker_maker.make_emoji_sticker(char, default_font_path))
+                    printer.print_image(emoji_sticker_maker.make_emoji_sticker(char, default_font_path, rotate))
             success = printer.print_spacer(px=spacer_size)
         elif contains_emoji(text):
             printer.print_image(

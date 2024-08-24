@@ -5,7 +5,7 @@ class EmojiStickerMaker:
     def __init__(self):
         return
 
-    def make_emoji_sticker(self, label, font_path):   
+    def make_emoji_sticker(self, label, font_path, rotate=True):   
         image_size = 384
         emoji_size = 325
 
@@ -31,6 +31,7 @@ class EmojiStickerMaker:
 
         # Draw the emoji centered in the image
         draw.text((text_x, 0), label[:1], fill='black', font=font)
-        image = image.rotate(-90, expand=True)
+        if rotate:
+            image = image.rotate(-90, expand=True)
 
         return image
