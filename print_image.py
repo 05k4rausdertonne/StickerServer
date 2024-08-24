@@ -5,10 +5,26 @@ from PIL import Image, ImageFilter
 # product_id = 0x0289
 class Printer:
     def __init__(self, vendor_id, product_id):
-        self.printer = Usb(vendor_id, product_id, 0, timeout=5000)
-        self.printer.open()
-    
+        try:
+            self.printer = Usb(vendor_id, product_id, 0, timeout=5000)
+            self.printer.open()
+        except Exception as e:
+            self.printer = None
+            print(f"Warning: Failed to initialize the USB printer. Error: {e}")
+      
+            
     def print_image(self, img, auto_rotate=False, print_width=384, edge_enhance=True):
+
+        if self.printer == None:
+            try:
+                self.printer = Usb(vendor_id, product_id, 0, timeout=5000)
+                self.printer.open()
+            except Exception as e:
+                self.printer = None
+                print(f"Warning: Failed to initialize the USB printer. Error: {e}")
+                print("Aborting print!")
+                return
+
         img = img.convert("L")
 
         width, height = img.size
@@ -32,13 +48,26 @@ class Printer:
         
 
     def print_spacer(self, px=10, print_width=384):
+
+        if self.printer == None:
+            try:
+                self.printer = Usb(vendor_id, product_id, 0, timeout=5000)
+                self.printer.open()
+            except Exception as e:
+                self.printer = None
+                print(f"Warning: Failed to initialize the USB printer. Error: {e}")
+                print("Aborting print!")
+                return
+
         spacer = Image.new('1', (print_width, px), 'white')
         self.printer.ln()
         self.printer.image(spacer, impl="bitImageColumn")
 
+
     def feed_lines(self, feed_lines):
         print(f"feeding {feed_lines} lines")
         self.printer.ln(count=feed_lines)
+
 
     def close_connection(self):
         self.printer.close()
