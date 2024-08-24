@@ -248,6 +248,8 @@ button.print{
   align-self: center;
   height: 75px;
   bottom: 20px;
+  align-items: center; /* Centers content vertically */
+  justify-content: center; /* Centers content horizontally */
   margin-top: auto;
   margin-bottom: auto;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Light drop shadow */
