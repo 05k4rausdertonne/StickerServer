@@ -314,8 +314,8 @@ input[type=file]::file-selector-button {
   align-self: center !important;
   align-content: center !important;
 }
-/* 
+
 img.qrimage {
   align-self: center !important;
   width: 75% !important;
-} */
+}
