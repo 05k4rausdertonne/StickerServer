@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('qrtext').value = "";
 
-    var qrcode = new QRCode("qrdiv", {
+    var qrcode = new QRCode('qrdiv', {
         text: "http://makestickers.local/",
         width: 384,
         height: 384,
@@ -152,13 +152,19 @@ document.addEventListener('DOMContentLoaded', function() {
         qrcode.clear(); // clear the code.
         let text = document.getElementById('qrtext').value;
 
-        console.log(`qr text: ${text}`);
+        // console.log(`qr text: ${text}`);
         
-        if (text == "") {
-            qrcode.makeCode("http://makestickers.local/");
+        if (text == '') {
+            qrcode.makeCode('http://makestickers.local/');
         }
         else {
             qrcode.makeCode(text);
         }
+    });
+
+    document.getElementById('qrbutton').addEventListener('click', async function () {
+        
+        console.log(document.getElementById('qrdiv').getElementsByTagName('img')[0]);
+        
     });
 });
