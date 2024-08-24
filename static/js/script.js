@@ -142,8 +142,6 @@ document.addEventListener('DOMContentLoaded', function() {
         colorLight : color5
     });
 
-    document.getElementById('qrdiv').getElementsByTagName('img')[0].class='qrimage'; 
-
     document.getElementById('qrtext').addEventListener('input', async function () {
         qrcode.clear(); // clear the code.
         let text = document.getElementById('qrtext').value;
@@ -156,6 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
         else {
             qrcode.makeCode(text);
         }
+        document.getElementById('qrdiv').getElementsByTagName('img')[0].class='qrimage'; 
     });
 
     document.getElementById('qrbutton').addEventListener('click', async function () {
@@ -163,4 +162,6 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(document.getElementById('qrdiv').getElementsByTagName('img')[0]);
         
     });
+
+    document.getElementById('qrdiv').getElementsByTagName('img')[0].class='qrimage'; 
 });
