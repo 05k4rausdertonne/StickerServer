@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const color4 = rootStyles.getPropertyValue('--color-4').trim();
     const color5 = rootStyles.getPropertyValue('--color-5').trim();
 
+    document.getElementById('qrdiv').getElementsByTagName('img')[0].class='qrimage';
 
     let sliders = document.getElementsByClassName('rangeslider');
 
