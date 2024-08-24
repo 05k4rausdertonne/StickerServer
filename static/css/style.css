@@ -316,7 +316,6 @@ input[type=file]::file-selector-button {
   align-items: center;
   align-self: center;
   box-sizing: border-box;
-  margin-right: -40px;
 }
 
 .qrimage {

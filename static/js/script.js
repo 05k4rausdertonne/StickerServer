@@ -170,7 +170,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('qrbutton').addEventListener('click', async function () {
 
-        console.log(document.getElementsByClassName('qrimage').length);
-        console.log(document.getElementsByClassName('qrimage').length);   
+        console.log(document.getElementsByClassName('qrimage')[1]);
+        let img = document.getElementsByClassName('qrimage')[1];
+
+        // Convert to base64 string
+        let base64Image = img.src;
+
+        // Remove the data URL prefix (optional, depends on how your server handles it)
+        base64Image = base64Image.replace(/^data:image\/(png|jpg);base64,/, "");
+
+        fetch('/upload', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ image: base64Image })
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Network response was not ok.');
+        })
+        .then(data => {
+            console.log('Success:', data);
+        })
+        .catch(error => {
+            console.error('There was a problem with your fetch operation:', error);
+        });
     });
 });
