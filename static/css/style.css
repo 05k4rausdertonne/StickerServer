@@ -330,7 +330,7 @@ input[type=file]::file-selector-button {
 }
 
 .buttonimage {
-  transform: translateX(-50%);
   height: 100%;
   width: auto;
+  bottom: 20px;
 }
