@@ -323,3 +323,7 @@ input[type=file]::file-selector-button {
   height: auto;
   display: block;
 }
+
+.qrinvisible {
+  display: none;
+}

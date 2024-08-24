@@ -142,23 +142,34 @@ document.addEventListener('DOMContentLoaded', function() {
         colorLight : color5
     });
 
+    var qrcodeinvisible = new QRCode('qrinvisible', {
+        text: "http://makestickers.local/",
+        width: 384,
+        height: 384,
+        colorDark : "#000000",
+        colorLight : "#ffffff"
+    });
+
+
     document.getElementById('qrtext').addEventListener('input', async function () {
         qrcode.clear(); // clear the code.
+        qrcodeinvisible.clear();
         let text = document.getElementById('qrtext').value;
 
         // console.log(`qr text: ${text}`);
         
         if (text == '') {
             qrcode.makeCode('http://makestickers.local/');
+            qrcodeinvisible.makeCode('http://makestickers.local/');
         }
         else {
             qrcode.makeCode(text);
+            qrcodeinvisible.makeCode(text);
         }
     });
 
     document.getElementById('qrbutton').addEventListener('click', async function () {
         
-        console.log(document.getElementById('qrdiv').getElementsByTagName('img')[0]);
-        
+        console.log(document.getElementsByClassName('qrimage')[1]);        
     });
 });
