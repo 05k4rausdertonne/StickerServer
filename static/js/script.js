@@ -179,7 +179,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Remove the data URL prefix (optional, depends on how your server handles it)
         base64Image = base64Image.replace(/^data:image\/(png|jpg);base64,/, "");
 
-        fetch('/image', {
+        let url = new URL(window.location.href);
+        url.pathname = '/image';
+
+        fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
