@@ -43,7 +43,6 @@ body {
 
 .box {
     flex: 1; /* Each box will take up equal width */
-    display: flex;
     margin: 20px;
     padding: 20px;
     padding-bottom: 100px;
