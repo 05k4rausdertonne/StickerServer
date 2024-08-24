@@ -277,7 +277,7 @@ var QRCode;
 			this._elImage.src = this._elCanvas.toDataURL("image/png");
 			this._elImage.class = "qrimage"
 			this._elCanvas.style.display = "none";	
-			this._elImage.style.display = "center";		
+			this._elImage.style.display = "block";		
 		}
 		
 		// Android 2.1 bug workaround
@@ -364,6 +364,7 @@ var QRCode;
 			this._bIsPainted = false;
 			this._elImage = document.createElement("img");
 			this._elImage.alt = "Scan me!";
+			this._elImage.class = "qrimage";
 			this._elImage.style.display = "none";
 			this._el.appendChild(this._elImage);
 			this._bSupportDataURI = null;
