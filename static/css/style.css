@@ -45,7 +45,7 @@ body {
     flex: 1; /* Each box will take up equal width */
     margin: 20px;
     padding: 20px;
-    padding-bottom: 100px;
+    padding-bottom: 150px;
     position: relative;
     text-align: center;
     justify-content: center;
@@ -206,7 +206,6 @@ button {
   -moz-appearance: none;
   appearance: none;
   width: auto; /* Button width will adjust based on content */
-  height: 50px; /* Adjust the height to your preference */
   padding: 0 20px; /* Padding inside the button */
   border: none; /* border */
   border-radius: 4px; /* Rounded corners */
@@ -241,12 +240,11 @@ button {
 }
 
 button.print{
-  color: var(--color-1);
   font-size: 75px;
   position: absolute;
   transform: translateX(-50%);
-  padding: 5px;
   align-self: center;
+  height: 75px;
   bottom: 20px;
   margin-top: auto;
   margin-bottom: auto;
@@ -330,5 +328,6 @@ input[type=file]::file-selector-button {
 }
 
 .buttonimage {
-  height: 75px;
+  height: 100%;
+  width: auto;
 }
