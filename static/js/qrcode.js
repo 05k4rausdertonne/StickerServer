@@ -276,6 +276,7 @@ var QRCode;
 		function _onMakeImage() {
 			this._elImage.src = this._elCanvas.toDataURL("image/png");
 			this._elImage.class = "qrimage"
+			this._elImage.style.display = "center";
 			this._elCanvas.style.display = "none";			
 		}
 		
