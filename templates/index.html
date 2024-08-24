@@ -52,17 +52,15 @@
         <div class="box">
             <h1>Print a QR code</h1>
             <input type="text" class="noto-emoji" id="qrtext" name="qrtext" placeholder="QR text goes here"><br><br>
-            <div id="qrdiv"></div>
+            <div id="qrdiv" class="qrdiv"></div>
             <button type="button" class="print noto-emoji" id="qrbutton" value="Print">🖨️</button>
             
 
         </div>
     </div>
 
-    
 
-
-    <!-- Link to the JavaScript file -->
+    <!-- Link to the JavaScript files -->
     <script src="{{ url_for('static', filename='js/qrcode.js') }}"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 

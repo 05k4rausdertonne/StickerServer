@@ -305,4 +305,8 @@ input[type=file]::file-selector-button {
   &:hover {
     opacity: 1;  /* Light gray background on hover */
   }
+
+  div.qrdiv {
+    margin: 20px;
+  }
 }
