@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         console.log(`qr text: ${text}`);
         
-        if (text = "") {
+        if (text == "") {
             qrcode.makeCode("http://makestickers.local/");
         }
         else {
