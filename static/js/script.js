@@ -34,8 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Check if the request was successful
             if (response.ok) {
-                const result = await response.json();
-                console.log('Server response:', result);
+                console.log('Server response:', response.statusText);
             } else {
                 console.log('Server error:', response.statusText);
                 alert('Server error:', response.statusText);
@@ -61,8 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Check if the request was successful
             if (response.ok) {
-                const result = await response.json();
-                console.log('Server response:', result);
+                console.log('Server response:', response.statusText);
             } else {
                 console.log('Server error:', response.statusText);
                 alert('Server error:', response.statusText);
