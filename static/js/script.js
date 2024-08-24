@@ -43,15 +43,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
             console.log(url)
             
-            const response = await fetch(url.href);
-
-            // Check if the request was successful
-            if (response.ok) {
-                console.log('Server response:', response.statusText);
-            } else {
-                console.log('Server error:', response.statusText);
-                alert('Server error:', response.statusText);
-            }
+            fetch(url.href).then(response => {
+                if (response.ok) {
+                    return response.statusText;
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch(error => {
+                console.error('There was a problem with your fetch operation:', error);
+            });
         }
         else {
             alert('Please enter text before submitting.');
@@ -69,15 +72,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
             console.log(url)
             
-            const response = await fetch(url.href);
-
-            // Check if the request was successful
-            if (response.ok) {
-                console.log('Server response:', response.statusText);
-            } else {
-                console.log('Server error:', response.statusText);
-                alert('Server error:', response.statusText);
-            }
+            fetch(url.href).then(response => {
+                if (response.ok) {
+                    return response.statusText;
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch(error => {
+                console.error('There was a problem with your fetch operation:', error);
+            });
         }
         else {
             alert('Please enter emoji(s) before submitting.');
@@ -86,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-    document.getElementById('iform').addEventListener('submit', async function(event) {
+    document.getElementById('iform').addEventListener('submit', function(event) {
         event.preventDefault();  // Prevent the default form submission
     
         // Get the file input element
@@ -116,19 +122,23 @@ document.addEventListener('DOMContentLoaded', function() {
     
         try {
             // Send the file using fetch with a POST request
-            const response = await fetch(url.href, {
+            fetch(url.href, {
                 method: 'POST',
                 body: formData,
                 
+            }).then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch(error => {
+                console.error('There was a problem with your fetch operation:', error);
             });
-    
-            // Check if the request was successful
-            if (response.ok) {
-                const result = await response.json();
-                console.log('Server response:', result);
-            } else {
-                console.log('Server error:', response.statusText);
-            }
+
         } catch (error) {
             console.error('Error uploading file:', error);
         }
@@ -141,6 +151,9 @@ document.addEventListener('DOMContentLoaded', function() {
         colorDark : color1,
         colorLight : color5
     });
+
+    // secondary invisible qrcode in the right colors for printing
+    // this will be sent to the server (adjust width and height according to your printer)
 
     var qrcodeinvisible = new QRCode('qrinvisible', {
         text: "http://makestickers.local/",
@@ -155,8 +168,6 @@ document.addEventListener('DOMContentLoaded', function() {
         qrcode.clear(); // clear the code.
         qrcodeinvisible.clear();
         let text = document.getElementById('qrtext').value;
-
-        // console.log(`qr text: ${text}`);
         
         if (text == '') {
             qrcode.makeCode('http://makestickers.local/');
