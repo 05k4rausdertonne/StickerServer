@@ -5,6 +5,20 @@ function removeFE0F(str) {
 
 document.addEventListener('DOMContentLoaded', function() {
 
+    // Access the root element where the variables are defined
+    const root = document.querySelector(':root');
+
+    // Get the computed style of the root element
+    const rootStyles = getComputedStyle(root);
+
+    // Access the variables using their names
+    const color1 = rootStyles.getPropertyValue('--color-1').trim();
+    const color2 = rootStyles.getPropertyValue('--color-2').trim();
+    const color3 = rootStyles.getPropertyValue('--color-3').trim();
+    const color4 = rootStyles.getPropertyValue('--color-4').trim();
+    const color5 = rootStyles.getPropertyValue('--color-5').trim();
+
+
     let sliders = document.getElementsByClassName('rangeslider');
 
     for (let slider of sliders)  {
@@ -119,5 +133,23 @@ document.addEventListener('DOMContentLoaded', function() {
         } catch (error) {
             console.error('Error uploading file:', error);
         }
+    });
+
+    document.getElementById('qrtext').value = "";
+
+    var qrcode = new QRCode("qrdiv", {
+        text: "http://makestickers.local/",
+        width: 384,
+        height: 384,
+        colorDark : color1,
+        colorLight : color5,
+        correctLevel : QRCode.CorrectLevel.H
+    });
+
+    
+
+    document.getElementById('qrtext').addEventListener('change', async function () {
+        qrcode.clear(); // clear the code.
+        qrcode.makeCode(document.getElementById('qrtext').value);
     });
 });
