@@ -41,6 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Server error:', response.statusText);
             }
         }
+        else {
+            alert('Please enter text before submitting.');
+        }
     });
 
     document.getElementById('ebutton').addEventListener('click', async function () {
@@ -65,6 +68,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Server error:', response.statusText);
             }
         }
+        else {
+            alert('Please enter emoji(s) before submitting.');
+        }
+
     });
 
 
