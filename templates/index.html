@@ -28,13 +28,17 @@
                 <input type="range" class="rangeslider" id="lfontsize" name="lfontsize" min="16" max="78" value="35">
                 <output id="lfontsizeoutput">35</output><br><br>
             </form>
-            <button type="button" class="print noto-emoji" id="lbutton" value="Print">🖨️</button>
+            <button type="button" class="print noto-emoji" id="lbutton" value="Print">
+                <img src="{{ url_for('static', filename='favicon.ico') }}">
+            </button>
         </div>
         <div class="box">
             <h1>Make an Sticker</h1>
             <br><br><br><br>
             <input type="text" class="noto-emoji" id="etext" name="etext" placeholder="put some emojis here"><br><br>
-            <button type="button" class="print noto-emoji" id="ebutton" value="Print">🖨️</button>
+            <button type="button" class="print noto-emoji" id="ebutton" value="Print">
+                <img src="{{ url_for('static', filename='favicon.ico') }}">
+            </button>
         </div>
         <div class="box">
             <h1>Print an Image</h1>
@@ -45,7 +49,9 @@
             <form id="iform">
                 <label for="ifile">upload image</label><br><br>
                 <input type="file" id="ifile" name="ifile" accept="image/*"><br><br>
-                <button type="submit" class="print noto-emoji" id="ibutton" value="Print">🖨️</button>
+                <button type="submit" class="print noto-emoji" id="ibutton" value="Print">
+                    <img src="{{ url_for('static', filename='favicon.ico') }}">
+                </button>
             </form>
 
         </div>
@@ -53,7 +59,9 @@
             <h1>Print a QR code</h1>
             <input type="text" id="qrtext" name="qrtext" placeholder="QR text goes here"><br><br>
             <div id="qrdiv" class="qrdiv"></div>
-            <button type="button" class="print noto-emoji" id="qrbutton" value="Print">🖨️</button>
+            <button type="button" class="print noto-emoji" id="qrbutton" value="Print">
+                <img src="{{ url_for('static', filename='favicon.ico') }}">
+            </button>
         </div>
     </div>
 
