@@ -310,10 +310,11 @@ input[type=file]::file-selector-button {
 
 .qrdiv {
   width: 75%;
+  align-self: center;
   align-content: center;
 }
-
+/* 
 img.qrimage {
   align-self: center !important;
   width: 75% !important;
-}
+} */
