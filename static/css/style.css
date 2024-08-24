@@ -306,7 +306,7 @@ input[type=file]::file-selector-button {
     opacity: 1;  /* Light gray background on hover */
   }
 
-  div.qrdiv {
+  #qrdiv {
     width: 75%;
   }
 }
