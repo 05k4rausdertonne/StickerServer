@@ -308,5 +308,6 @@ input[type=file]::file-selector-button {
 
   #qrdiv {
     width: 75%;
+    align-content: center;
   }
 }
