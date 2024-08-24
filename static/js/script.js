@@ -175,8 +175,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         let url = new URL(window.location.href);
         url.pathname = '/image';
-        url.searchParams.append('autorotate', autoRotate);
-        url.searchParams.append('edgeenhance', edgeEnhance);
 
         canvas.toBlob(function(blob) {
             // Send the blob as a file in a POST request
