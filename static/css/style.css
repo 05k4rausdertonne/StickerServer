@@ -57,10 +57,17 @@ body {
     background-color: var(--color-5);
 }
 /* Responsive behavior */
-@media (max-width: 950px) {
+@media (max-width: 750px) {
     .box {
         flex-basis: 100%; /* Make each box take full width when screen not as wide */
     }
+}
+
+/* Responsive behavior */
+@media (max-width: 1200px) {
+  .box {
+      flex-basis: 50%; /* Make each box take full width when screen not as wide */
+  }
 }
 
 input[type=range] {
