@@ -58,26 +58,11 @@ body {
     background-color: var(--color-5);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 950px) {
     .box {
         flex-basis: 100%; /* Make each box take full width when screen not as wide */
     }
 }
-
-@media (min-width: 769px) and (max-width: 1224px) {
-  .box {
-    flex-basis: calc(50% - 21px); /* Each box takes 50% of the width minus margin */
-  }
-}
-
-/* Each box takes one-third of the container's width for screens wider than 1024px */
-@media (min-width: 1225px) {
-  .box {
-      flex-basis: calc(25% - 21px); /* Each box takes 25% of the width minus margin */
-  }
-}
-
-
 
 input[type=range] {
   -webkit-appearance: none;
