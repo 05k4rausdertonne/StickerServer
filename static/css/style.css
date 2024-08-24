@@ -306,8 +306,13 @@ input[type=file]::file-selector-button {
     opacity: 1;  /* Light gray background on hover */
   }
 
-  .qrdiv {
+  /* .qrdiv {
     width: 75%;
     align-content: center;
+  } */
+
+  .qrimage {
+    align-self: center;
+    width: 75%;
   }
 }
