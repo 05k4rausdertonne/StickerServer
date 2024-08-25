@@ -42,13 +42,16 @@
         </div>
         <div class="box">
             <h1>Print an Image</h1>
-            <label for="iautorotate">auto rotation</label>
-            <input type="checkbox" id="iautorotate" name="iautorotate" checked="true"><br><br>
-            <label for="iedgeenhance">edge enhance</label>
-            <input type="checkbox" id="iedgeenhance" name="iedgeenhance" checked="true"><br><br>
+            <br>
+            <br>
             <form id="iform">
                 <label for="ifile">upload image</label><br><br>
                 <input type="file" id="ifile" name="ifile" accept="image/*"><br><br>
+                <label for="iautorotate">auto rotation</label>
+                <input type="checkbox" id="iautorotate" name="iautorotate" checked="true"><br><br>
+                <label for="iedgeenhance">edge enhance</label>
+                <input type="checkbox" id="iedgeenhance" name="iedgeenhance" checked="true"><br><br>
+                
                 <button type="submit" class="print noto-emoji" id="ibutton" value="Print">
                     <img class="buttonimage" src="{{ url_for('static', filename='img/Noto_Emoji.Printer.svg') }}">
                 </button>
