@@ -66,3 +66,5 @@ class LabelMaker:
         draw = ImageDraw.Draw(image)
         draw.rectangle([(margin, margin), (image_width-margin, image_height-margin)], outline='black', width=borderwidth)
         return image
+
+    # make image that is 384*979 pixels for the spice labels
