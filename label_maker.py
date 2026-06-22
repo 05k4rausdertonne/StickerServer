@@ -89,7 +89,7 @@ class LabelMaker:
             new_w = int(img_w * ratio)
             new_h = int(img_h * ratio)
             
-            resized_img = pil_image.resize((new_w, new_h), Image.Resampling.LANCZOS)
+            resized_img = pil_image.resize((new_w, new_h), Image.LANCZOS)
             x_offset = (label_width - new_w) // 2
             y_offset = (half_height - new_h) // 2
             canvas.paste(resized_img, (x_offset, y_offset))
