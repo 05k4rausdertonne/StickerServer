@@ -221,7 +221,6 @@ document.addEventListener('DOMContentLoaded', function() {
         formData.append('bold', bold);
         formData.append('italic', italic);
         formData.append('fontsize', fontSize);
-        formData.append('autorotate', autoRotate);
         formData.append('edgeenhance', edgeEnhance);
 
         try {
