@@ -4,22 +4,37 @@ function removeFE0F(str) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-
     // Access the root element where the variables are defined
     const root = document.querySelector(':root');
-
-    // Get the computed style of the root element
     const rootStyles = getComputedStyle(root);
-
-    // Access the variables using their names
     const color1 = rootStyles.getPropertyValue('--color-1').trim();
     const color2 = rootStyles.getPropertyValue('--color-2').trim();
     const color3 = rootStyles.getPropertyValue('--color-3').trim();
     const color4 = rootStyles.getPropertyValue('--color-4').trim();
     const color5 = rootStyles.getPropertyValue('--color-5').trim();
 
-    let sliders = document.getElementsByClassName('rangeslider');
+    // Tab switching logic
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
 
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            const targetContent = document.getElementById(targetId);
+
+            if (!targetContent) return;
+
+            // Remove active class from all buttons and contents
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // Add active class to clicked button and target content
+            this.classList.add('active');
+            targetContent.classList.add('active');
+        });
+    });
+
+    let sliders = document.getElementsByClassName('rangeslider');
     for (let slider of sliders)  {
         let output = document.getElementById(`${slider.id}output`)
         slider.addEventListener('input', function  () {
@@ -40,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
             url.searchParams.append('bold', bold);
             url.searchParams.append('italic', italic);
             url.searchParams.append('fontsize', fontSize);
-
+            
             console.log(url)
             
             fetch(url.href).then(response => {
@@ -69,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
             url.pathname = '/label';
             url.searchParams.append('text', text);
             url.searchParams.append('emoji', true);
-
+            
             console.log(url)
             
             fetch(url.href).then(response => {
@@ -88,20 +103,14 @@ document.addEventListener('DOMContentLoaded', function() {
         else {
             alert('Please enter emoji(s) before submitting.');
         }
-
     });
-
 
     document.getElementById('iform').addEventListener('submit', function(event) {
         event.preventDefault();  // Prevent the default form submission
-    
-        // Get the file input element
         const fileInput = document.getElementById('ifile');
-
         let autoRotate = document.getElementById('iautorotate').checked
         let edgeEnhance = document.getElementById('iedgeenhance').checked
     
-        // Get the selected file from the input element
         const file = fileInput.files[0];
     
         if (!file) {
@@ -109,19 +118,16 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
     
-        // Create a FormData object to hold the file
         const formData = new FormData();
         formData.append('file', file);
-
         let url = new URL(window.location.href);
         url.pathname = '/image';
         url.searchParams.append('autorotate', autoRotate);
         url.searchParams.append('edgeenhance', edgeEnhance);
-
+    
         console.log(url);
     
         try {
-            // Send the file using fetch with a POST request
             fetch(url.href, {
                 method: 'POST',
                 body: formData,
@@ -136,25 +142,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('Success:', data);
             })
             .catch(error => {
-                console.error('There was a problem with your fetch operation:', error);
+                console.error('Error uploading file:', error);
             });
-
         } catch (error) {
             console.error('Error uploading file:', error);
         }
     });
 
     document.getElementById('qrtext').value = "";
-
     var qrcode = new QRCode('qrdiv', {
         text: "http://makestickers.local/",
         colorDark : color1,
         colorLight : color5
     });
-
-    // secondary invisible qrcode in the right colors for printing
-    // this will be sent to the server (adjust width and height according to your printer)
-
     var qrcodeinvisible = new QRCode('qrinvisible', {
         text: "http://makestickers.local/",
         width: 384,
@@ -163,9 +163,8 @@ document.addEventListener('DOMContentLoaded', function() {
         colorLight : "#ffffff"
     });
 
-
     document.getElementById('qrtext').addEventListener('input', async function () {
-        qrcode.clear(); // clear the code.
+        qrcode.clear(); 
         qrcodeinvisible.clear();
         let text = document.getElementById('qrtext').value;
         
@@ -180,21 +179,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.getElementById('qrbutton').addEventListener('click', async function () {
-
-        console.log(document.getElementsByClassName('qrimage')[1]);
         let canvas = document.getElementById('qrinvisible').getElementsByTagName('canvas')[0];
-
         let url = new URL(window.location.href);
         url.pathname = '/image';
-
         canvas.toBlob(function(blob) {
-            // Send the blob as a file in a POST request
             const formData = new FormData();
-            formData.append('file', blob, 'image.png'); // The third parameter is the filename
-
+            formData.append('file', blob, 'image.png');
             fetch(url.href, {
                 method: 'POST',
-                body: formData
+                body: formData,
             })
             .then(response => {
                 if (response.ok) {
@@ -209,8 +202,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error('There was a problem with your fetch operation:', error);
             });
         }, 'image/png'); 
-
-
-
     });
 });

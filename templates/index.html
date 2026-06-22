@@ -4,19 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>StickerServer - Label Maker</title>
 
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
-    <!-- Link to the CSS file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
 </head>
 <body>
-    <!-- <h1>Welcome to My Website</h1>
-    <p>This is the home page of my Flask app!</p> -->
+
+    <nav class="tab-nav">
+        <button class="tab-btn active" data-target="label-section">Text</button>
+        <button class="tab-btn" data-target="emoji-section">Emoji</button>
+        <button class="tab-btn" data-target="image-section">Image</button>
+        <button class="tab-btn" data-target="qr-section">QR Code</button>
+    </nav>
 
     <div class="container">
-        <div class="box">
+        <!-- Text Label Section -->
+        <div class="box tab-content active" id="label-section">
             <form>
                 <h1>Make a Label</h1>
                 <label for="lbold"><b>Bold</b></label>
@@ -32,33 +36,38 @@
                 <img class="buttonimage" src="{{ url_for('static', filename='img/Noto_Emoji.Printer.svg') }}">
             </button>
         </div>
-        <div class="box">
-            <h1>Make an Sticker</h1>
+
+        <!-- Emoji Sticker Section -->
+        <div class="box tab-content" id="emoji-section">
+            <h1>Make a Sticker</h1>
             <br><br><br>
             <input type="text" class="noto-emoji" id="etext" name="etext" placeholder="put some emojis here"><br><br>
             <button type="button" class="print noto-emoji" id="ebutton" value="Print">
                 <img class="buttonimage" src="{{ url_for('static', filename='img/Noto_Emoji.Printer.svg') }}">
             </button>
         </div>
-        <div class="box">
+
+        <!-- Image Section -->
+        <div class="box tab-content" id="image-section">
             <h1>Print an Image</h1>
             <br>
             <br>
             <form id="iform">
                 <label for="ifile">Upload Image</label><br><br>
                 <input type="file" id="ifile" name="ifile" accept="image/*"><br><br>
-                <label for="iautorotate">Auto Rotation</label>
+                <label for="iautorotate">Auto Rotation</label><br><br>
                 <input type="checkbox" id="iautorotate" name="iautorotate" checked="true"><br><br>
-                <label for="iedgeenhance">Edge Enhance</label>
+                <label for="iedgeenhance">Edge Enhance</label><br><br>
                 <input type="checkbox" id="iedgeenhance" name="iedgeenhance" checked="true"><br><br>
                 
                 <button type="submit" class="print noto-emoji" id="ibutton" value="Print">
                     <img class="buttonimage" src="{{ url_for('static', filename='img/Noto_Emoji.Printer.svg') }}">
                 </button>
             </form>
-
         </div>
-        <div class="box">
+
+        <!-- QR Code Section -->
+        <div class="box tab-content" id="qr-section">
             <h1>Print a QR code</h1>
             <input type="text" id="qrtext" name="qrtext" placeholder="QR text goes here"><br><br>
             <div id="qrdiv" class="qrdiv"></div>
@@ -70,10 +79,7 @@
 
     <div id="qrinvisible"></div>
 
-
-    <!-- Link to the JavaScript files -->
     <script src="{{ url_for('static', filename='js/qrcode.js') }}"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-
 </body>
 </html>
