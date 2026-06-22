@@ -68,3 +68,70 @@ class LabelMaker:
         return image
 
     # make image that is 384*979 pixels for the spice labels
+
+    def make_spice_jar(self, text, pil_image=None, font_path='NotoSans-Regular.ttf', font_size=35, bold=False, italic=False):
+        # Dimensions for 979x384 landscape label
+        label_width = 979
+        label_height = 384
+        half_height = label_height // 2
+
+        # Create the main canvas (RGB first for easier processing, then convert to 1-bit)
+        canvas = Image.new('RGB', (label_width, label_height), 'white')
+        draw = ImageDraw.Draw(canvas)
+
+        # --- UPPER HALF: IMAGE ---
+        if pil_image:
+            img_w, img_h = pil_image.size
+            max_w = label_width
+            max_h = half_height
+            
+            ratio = min(max_w / img_w, max_h / img_h)
+            new_w = int(img_w * ratio)
+            new_h = int(img_h * ratio)
+            
+            resized_img = pil_image.resize((new_w, new_h), Image.Resampling.LANCZOS)
+            x_offset = (label_width - new_w) // 2
+            y_offset = (half_height - new_h) // 2
+            canvas.paste(resized_img, (x_offset, y_offset))
+
+        # --- LOWER HALF: TEXT ---
+        try:
+            font = ImageFont.truetype(font_path, font_size)
+        except:
+            font = ImageFont.load_default()
+
+        # Simple text wrapping
+        words = text.split()
+        lines = []
+        current_line = ""
+        for word in words:
+            test_line = f"{current_line} {word}".strip()
+            left, top, right, bottom = draw.textbbox((0, 0), test_line, font=font)
+            if (right - left) <= label_width * 0.8:
+                current_line = test_line
+            else:
+                lines.append(current_line)
+                current_line = word
+        lines.append(current_line)
+
+        # Vertical centering calculation for the text block
+        # Estimate total height of text block
+        total_text_height = 0
+        line_spacing = 5
+        for line in lines:
+            left, top, right, bottom = draw.textbbox((0, 0), line, font=font)
+            total_text_height += (bottom - top) + line_spacing
+        
+        # Start drawing from the middle of the lower half minus half the text height
+        y_cursor = half_height + (half_height - total_text_height) // 2
+        
+        for line in lines:
+            left, top, right, bottom = draw.textbbox((0, 0), line, font=font)
+            line_w = right - left
+            line_h = bottom - top
+            x_pos = (label_width - line_w) // 2
+            draw.text((x_pos, y_cursor), line, fill='black', font=font)
+            y_cursor += line_h + line_spacing
+
+        canvas = canvas.convert('1')
+        return canvas

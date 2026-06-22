@@ -1,5 +1,4 @@
 from flask import Flask, request, render_template, jsonify
-
 from PIL import Image
 from emoji import EMOJI_DATA
 
@@ -114,6 +113,38 @@ def image():
         return jsonify({"message": "Image processed successfully"}), 200
     else:
         return jsonify({"message": "Error: Printer not working, maybe its not initialized?"}), 503
+
+@app.route('/spice-jar', methods=['POST'])
+def spice_jar():
+    text = request.form.get('text', '')
+    file = request.files.get('file')
+    bold = request.form.get('bold') == 'true'
+    italic = request.form.get('italic') == 'true'
+    font_size = int(request.form.get('fontsize', 35))
+    auto_rotate = request.form.get('autorotate') == 'true'
+    edge_enhance = request.form.get('edgeenhance') == 'true'
+
+    pil_image = None
+    if file:
+        pil_image = Image.open(file)
+
+    # Create the 979x384 image in label_maker
+    spice_image = label_maker.make_spice_jar(
+        text,         
+        pil_image=pil_image, 
+        font_path=bold_italic_font_path if bold and italic else (bold_font_path if bold else (italic_font_path if italic else default_font_path)),
+        font_size=font_size
+    )
+    
+    # Rotate to 384x979 for the printer (landscape orientation on paper)
+    spice_image = spice_image.rotate(90, expand=True)
+
+    success = printer.print_image(spice_image, auto_rotate=auto_rotate, edge_enhance=edge_enhance)
+    
+    if success:
+        return jsonify({"message": "Spice jar printed successfully"}), 200
+    else:
+        return jsonify({"message": "Error: Printer failed"}), 503
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
