@@ -121,7 +121,6 @@ def spice_jar():
     bold = request.form.get('bold') == 'true'
     italic = request.form.get('italic') == 'true'
     font_size = int(request.form.get('fontsize', 35))
-    auto_rotate = request.form.get('autorotate') == 'true'
     edge_enhance = request.form.get('edgeenhance') == 'true'
 
     pil_image = None
@@ -139,7 +138,7 @@ def spice_jar():
     # Rotate to 384x979 for the printer (landscape orientation on paper)
     spice_image = spice_image.rotate(90, expand=True)
 
-    success = printer.print_image(spice_image, auto_rotate=auto_rotate, edge_enhance=edge_enhance)
+    success = printer.print_image(spice_image, auto_rotate=False, edge_enhance=edge_enhance)
     
     if success:
         return jsonify({"message": "Spice jar printed successfully"}), 200

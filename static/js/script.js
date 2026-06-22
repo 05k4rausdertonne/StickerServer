@@ -211,7 +211,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const bold = document.getElementById('spicibold').checked;
         const italic = document.getElementById('spicitalic').checked;
         const fontSize = document.getElementById('spicesize').value;
-        const autoRotate = document.getElementById('spiceautorotate').checked;
         const edgeEnhance = document.getElementById('spiceedgeenhance').checked;
 
         const formData = new FormData();
