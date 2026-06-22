@@ -10,14 +10,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-
     <nav class="tab-nav">
         <button class="tab-btn active" data-target="label-section">Text</button>
         <button class="tab-btn" data-target="emoji-section">Emoji</button>
         <button class="tab-btn" data-target="image-section">Image</button>
         <button class="tab-btn" data-target="qr-section">QR Code</button>
+        <button class="tab-btn" data-target="spice-jar-section">Spice Jar</button>
     </nav>
-
     <div class="container">
         <!-- Text Label Section -->
         <div class="box tab-content active" id="label-section">
@@ -36,7 +35,6 @@
                 <img class="buttonimage" src="{{ url_for('static', filename='img/Noto_Emoji.Printer.svg') }}">
             </button>
         </div>
-
         <!-- Emoji Sticker Section -->
         <div class="box tab-content" id="emoji-section">
             <h1>Make a Sticker</h1>
@@ -46,7 +44,6 @@
                 <img class="buttonimage" src="{{ url_for('static', filename='img/Noto_Emoji.Printer.svg') }}">
             </button>
         </div>
-
         <!-- Image Section -->
         <div class="box tab-content" id="image-section">
             <h1>Print an Image</h1>
@@ -65,7 +62,6 @@
                 </button>
             </form>
         </div>
-
         <!-- QR Code Section -->
         <div class="box tab-content" id="qr-section">
             <h1>Print a QR code</h1>
@@ -75,10 +71,36 @@
                 <img class="buttonimage" src="{{ url_for('static', filename='img/Noto_Emoji.Printer.svg') }}">
             </button>
         </div>
+
+        <!-- Spice Jar Section -->
+        <div class="box tab-content" id="spice-jar-section">
+            <h1>Spice Jar</h1>
+            <form id="spiceform">
+                <input type="text" id="spicetext" name="spicetext" placeholder="Text content"><br><br>
+                <label for="spicefile">Upload Image</label><br><br>
+                <input type="file" id="spicefile" name="spicefile" accept="image/*"><br><br>
+                
+                <label for="spicibold"><b>Bold</b></label>
+                <input type="checkbox" id="spicibold" name="spicibold"><br>
+                <label for="spicitalic"><i>Italic</i></label>
+                <input type="checkbox" id="spicitalic" name="spicitalic"><br><br>
+
+                <label for="spicesize">Font Size</label><br><br>
+                <input type="range" class="rangeslider" id="spicesize" name="spicesize" min="16" max="78" value="35">
+                <output id="spicesizeoutput">35</output><br><br>
+
+                <label for="spiceautorotate">Auto Rotation</label><br><br>
+                <input type="checkbox" id="spiceautorotate" name="spiceautorotate" checked="true"><br>
+                <label for="spiceedgeenhance">Edge Enhance</label><br><br>
+                <input type="checkbox" id="spiceedgeenhance" name="spiceedgeenhance" checked="true"><br><br>
+
+                <button type="submit" class="print noto-emoji" id="spicebutton" value="Print">
+                    <img class="buttonimage" src="{{ url_for('static', filename='img/Noto_Emoji.Printer.svg') }}">
+                </button>            
+            </form>
+        </div>
     </div>
-
     <div id="qrinvisible"></div>
-
     <script src="{{ url_for('static', filename='js/qrcode.js') }}"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>

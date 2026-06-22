@@ -203,4 +203,42 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }, 'image/png'); 
     });
+
+    document.getElementById('spiceform').addEventListener('submit', async function(event) {
+        event.preventDefault();
+        const text = document.getElementById('spicetext').value;
+        const file = document.getElementById('spicefile').files[0];
+        const bold = document.getElementById('spicibold').checked;
+        const italic = document.getElementById('spicitalic').checked;
+        const fontSize = document.getElementById('spicesize').value;
+        const autoRotate = document.getElementById('spiceautorotate').checked;
+        const edgeEnhance = document.getElementById('spiceedgeenhance').checked;
+
+        const formData = new FormData();
+        formData.append('text', text);
+        if (file) {
+            formData.append('file', file);
+        }
+        formData.append('bold', bold);
+        formData.append('italic', italic);
+        formData.append('fontsize', fontSize);
+        formData.append('autorotate', autoRotate);
+        formData.append('edgeenhance', edgeEnhance);
+
+        try {
+            const response = await fetch('/spice-jar', {
+                method: 'POST',
+                body: formData,
+            });
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Spice Jar Success:', data);
+            } else {
+                throw new Error('Network response was not ok.');
+            }
+        } catch (error) {
+            console.error('Error submitting spice jar:', error);
+        }
+    });
+
 });
