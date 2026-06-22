@@ -71,7 +71,7 @@ class LabelMaker:
 
     def make_spice_jar(self, text, pil_image=None, font_path='NotoSans-Regular.ttf', font_size=35, bold=False, italic=False):
         # Dimensions for 979x384 landscape label
-        label_width = 979
+        label_width = 985
         label_height = 384
         half_height = label_height // 2
 
