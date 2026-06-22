@@ -375,3 +375,20 @@ input[type=file]::file-selector-button {
   width: auto;
   bottom: 20px;
 }
+
+.shutdown-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: var(--color-4); /* Red */
+  color: var(--color-2);
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Light drop shadow */
+  z-index: 1000; /* Ensure it is on top */
+  opacity: 0.75;
+  transition: opacity .2s;
+}

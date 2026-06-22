@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <button id="shutdown-btn" class="shutdown-btn">
+        <img class="buttonimage" src="{{ url_for('static', filename='img/power.svg') }}">
+    </button>
+
     <nav class="tab-nav">
-        <button class="tab-btn active" data-target="label-section">Text</button>
+        <button class="tab-btn active" data de target="label-section">Text</button>
         <button class="tab-btn" data-target="emoji-section">Emoji</button>
         <button class="tab-btn" data-target="image-section">Image</button>
         <button class="tab-btn" data-target="qr-section">QR Code</button>
@@ -101,5 +105,14 @@
     <div id="qrinvisible"></div>
     <script src="{{ url_for('static', filename='js/qrcode.js') }}"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <script>
+        document.getElementById('shutdown-btn').addEventListener('click', function() {
+            if (confirm('Are you sure you want to shut down the host system?')) {
+                console.log('Shutdown requested');
+                // Backend implementation will be added later.
+            }
+        });
+    </script>
 </body>
 </html>
