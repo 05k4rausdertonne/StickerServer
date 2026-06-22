@@ -365,6 +365,11 @@ input[type=file]::file-selector-button {
   display: none;
 }
 
+#qrtext {
+  margin-bottom: 5em;
+}
+
+
 .buttonimage {
   height: 100%;
   width: auto;
