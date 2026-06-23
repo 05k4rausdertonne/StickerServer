@@ -381,17 +381,22 @@ input[type=file]::file-selector-button {
   position: fixed;
   top: 10px;
   right: 10px;
-  padding: 10px 20px;
+  width: 45px;
+  height: 45px;
   background-color: var(--color-4);
-  color: var(--color-2);
   border: none;
   border-radius: 5px;
-  font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Light drop shadow */
-  z-index: 1000; /* Ensure it is on top */
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   opacity: 0.75;
-  align-items: center; /* Centers content vertically */
-  justify-content: center; /* Centers content horizontally */
   transition: opacity .2s;
+}
+
+.shutdown-btn .buttonimage {
+  width: 28px;
+  height: 28px;
 }
