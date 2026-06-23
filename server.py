@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, jsonify
-from PIL import Image
+from PIL import Image, ImageFilter
 from emoji import EMOJI_DATA
 
 from print_image import Printer
@@ -128,6 +128,8 @@ def spice_jar():
     pil_image = None
     if file:
         pil_image = Image.open(file)
+        if edge_enhance:
+            pil_image = pil_image.filter(ImageFilter.EDGE_ENHANCE)
 
     # Create the 979x384 image in label_maker
     spice_image = label_maker.make_spice_jar(
