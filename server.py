@@ -5,6 +5,8 @@ from emoji import EMOJI_DATA
 from print_image import Printer
 from label_maker import LabelMaker
 from emoji_sticker_maker import EmojiStickerMaker
+import subprocess
+
 
 
 # Adjust this values to compensate for your printer
@@ -144,6 +146,18 @@ def spice_jar():
         return jsonify({"message": "Spice jar printed successfully"}), 200
     else:
         return jsonify({"message": "Error: Printer failed"}), 503
+
+
+@app.route('/shutdown', methods=['POST'])
+def shutdown():
+    try:
+        # Using sudo to ensure it has permission on Linux/Raspbian
+        subprocess.run(['sudo', 'shutdown', 'now'], check=True)
+        return jsonify({"message": "Shutdown signal sent"}), 200
+    except Exception as e:
+        print(f"Error during shutdown attempt: {e}")
+        return jsonify({"error": str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

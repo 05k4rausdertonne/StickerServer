@@ -105,11 +105,14 @@
     <script src="{{ url_for('static', filename='js/qrcode.js') }}"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
-    <script>
+        <script>
         document.getElementById('shutdown-btn').addEventListener('click', function() {
-            if (confirm('Are you sure you want to shut down the host system?')) {
-                console.log('Shutdown requested');
-                // Backend implementation will be added later.
+            if (confirm('Are you sure you want to shut down the sticker server?')) {
+                fetch('/shutdown', { method: 'POST' })
+                    .then(response => {
+                        if (!response.ok) alert('Failed to initiate shutdown.');
+                    })
+                    .catch(err => console.error('Error:', err));
             }
         });
     </script>
